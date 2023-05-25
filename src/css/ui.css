@@ -14,25 +14,28 @@
 
   background: var(--color-secondary-background);
 
-  border:var(--bw-regular) solid var(--color-primary-border);
+  border: var(--bw-regular) solid var(--color-primary-border);
 }
+
 .page-title h1 {
   color: var(--color-primary-background);
 }
 
 /* NAV */
 
-.c-navbar li{
+.c-navbar li {
   min-height: 60px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.c-navbar li:first-child{
+
+.c-navbar li:first-child {
   background-color: var(--color-primary-cta);
 }
-.c-navbar li:last-child{
+
+.c-navbar li:last-child {
   background-color: var(--color-secondary-cta);
 }
 
@@ -47,8 +50,8 @@
   height: 60px;
 
   background: var(--color-secondary-background);
-  
-  border:var(--bw-regular) solid var(--color-primary-border);
+
+  border: var(--bw-regular) solid var(--color-primary-border);
 }
 
 /* -- Logo text*/
@@ -67,8 +70,8 @@
 .c-search {
   min-width: 190px;
   height: 60px;
-  
-  border:var(--bw-regular) solid var(--color-primary-border);
+
+  border: var(--bw-regular) solid var(--color-primary-border);
 
   flex-grow: 2;
 }
@@ -86,7 +89,7 @@
 
 /* - Hamburger menu */
 
-.c-hamburger {
+.c-hamburger-menu {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -98,10 +101,10 @@
 
   background-color: var(--color-primary-cta);
 
-  border:var(--bw-regular) solid var(--color-primary-border);
+  border: var(--bw-regular) solid var(--color-primary-border);
 }
 
-.c-hamburger a {
+.c-hamburger-menu a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -130,20 +133,21 @@
 
 .c-card {
   width: 100%;
-  
-  border:var(--bw-regular) solid var(--color-primary-border);
+
+  border: var(--bw-regular) solid var(--color-primary-border);
 }
 
 .c-title {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding:1rem;
+  padding: 1rem;
   margin-top: 20px;
   margin-bottom: 20px;
 
   min-width: 280px;
 }
+
 .c-title::before {
   font-family: "material icons";
   font-size: var(--fs-xxl);
@@ -171,7 +175,7 @@
   grid-template-rows: 1fr;
 }
 
-.accordion-content > div {
+.accordion-content>div {
   overflow: hidden;
 }
 
@@ -182,7 +186,7 @@
 
 .accordion-panel {
   padding: 1rem;
-  border:var(--bw-regular) solid var(--color-primary-border);
+  border: var(--bw-regular) solid var(--color-primary-border);
 }
 
 .accordion h2 {
