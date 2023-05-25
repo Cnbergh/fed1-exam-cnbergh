@@ -1,0 +1,101 @@
+/*!
+ * Layout
+ * Layout classes use the l- prefix to indicate they are layout classes.
+ * @tutorial https://web.dev/learn/css/layout/
+ * @example https://fed-vocational-astro-course.vercel.app/en/html-css/module-3/css-grids
+ */
+
+/*Layout Body*/
+
+body {
+  margin: 0 auto;
+  max-width: 1440px;
+  place-items: flex-start;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: minmax(62px, auto) 1fr auto;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+}
+
+
+/*Layout Header */
+
+.l-header {
+  display: flex;
+  flex-direction: column;
+  grid-area: header;
+  width: 100%;
+  padding: var(--size-fluid-1);
+  margin: 0 auto;
+}
+
+/*-Layout Navbar*/
+
+.l-navbar {
+  display: flex;
+  flex-direction: column;
+  padding: var(--size-fluid-1);
+  margin: 3% auto 0;
+
+  width: 95%;
+}
+
+/*--Layout Navbar ul*/
+
+.l-navbar ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  list-style: none;
+
+  width: 100%;
+
+  padding: 0;
+  margin: 0;
+}
+
+/*Layout Main*/
+
+.l-main {
+  display: flex;
+  flex-direction: column;
+  grid-area: main;
+  padding: var(--size-fluid-2);
+  margin: 0 auto;
+  width: 95%;
+}
+
+
+/*Layout Footer*/
+
+.l-footer {
+  display: flex;
+  flex-direction: column;
+  grid-area: footer;
+  padding: var(--size-fluid-1);
+  margin: 0 auto;
+  width: 95%;
+}
+
+
+
+.l-content {
+  flex: 1 0 auto;
+  min-height: 80px;
+}
+
+.l-container {
+  width: 100%;
+  margin: 0 auto 0 auto;
+}
+
+.l-latest-post {
+  position: absolute;
+  
+  z-index: 4;
+  color:var(--color-dark-blue);
+}

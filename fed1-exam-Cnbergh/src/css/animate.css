@@ -1,0 +1,14 @@
+/*!
+ * Animation
+ * @tutorial https://web.dev/learn/css/animations/
+ * @example https://fed-vocational-astro-course.vercel.app/en/html-css/module-4/animations-transitions
+ */
+
+@keyframes skeleton-loader {
+  0% {
+    background-color: var(--color-secondary-background);
+  }
+  100% {
+    background-color: var(--color-secondary-background);
+  }
+}
