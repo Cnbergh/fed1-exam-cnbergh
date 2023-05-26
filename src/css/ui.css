@@ -141,11 +141,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 1rem;
-  margin-top: 20px;
-  margin-bottom: 20px;
-
   min-width: 280px;
+
 }
 
 .c-title::before {
@@ -157,12 +154,31 @@
 }
 
 .hero-image {
-  max-width: 650px;
+  width: 100%;
+  height: 200px;
   min-width: 280px;
-  min-height: 180px;
   object-fit: cover;
-  margin: 0 auto;
   flex-shrink: 0;
+
+  grid-area: hero-img;
+}
+
+.c-text_wrapper {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-between;
+  word-wrap: break-word;
+  grid-area: text-box;
+}
+
+.c-card-title {
+  padding: 1% 3%;
+}
+
+.c-card-text {
+  padding: 1% 3%;
 }
 
 /*Lost of Blogs*/
@@ -190,7 +206,8 @@
   border: var(--bw-regular) solid var(--color-primary-border);
 }
 
-.accordion h2 {
+.accordion h2,
+h3 {
   position: relative;
 }
 
@@ -198,6 +215,7 @@
   background: transparent;
   border: 0;
   font: inherit;
+  font-size: var(--fs-m);
   color: inherit;
 }
 
@@ -225,12 +243,11 @@
 
 
 .b-cta {
-  min-width: 280px;
   height: 60px;
   background: var(--color-secondary-background);
   border: 0;
 
-  width: inherit;
+  width: 100%;
   font: inherit;
   color: var(--color-light-pink);
 }

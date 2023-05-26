@@ -43,15 +43,17 @@
     <article role="main-content">
       <section role="latest-post">
         <div id="js-latest_container" class="error-message">
-          <div id="latest-post" class="c-card">
+          <div id="latest-post" class="l-container c-card">
             <div class="c-title l-latest-post">
               <h2 role="component-title">Latest post</h2>
             </div>
-            <div class="skeleton-loader skeleton-text"></div>
-            <img src="/assets/placeholder.jpg" loading="lazy" alt="…" class="u-img hero-image skeleton-loader" />
-            <h3>Feature Heading</h3>
-            <p>Short, concise text that describes the feature</p>
-            <div class="skeleton-loader skeleton-text"></div>
+            <img src="/assets/placeholder.jpg" loading="lazy" alt="…" class="hero-image skeleton-loader" />
+            <div class="c-text_wrapper">
+              <h3 role="feature heading" class="c-card-title">Feature Heading</h3>
+              <p role="feature description" class="c-card-text">Short, concise text that describes the feature</p>
+              <div class="skeleton-loader skeleton-text"></div>
+              <button class="b-cta">See more</button>
+            </div>
           </div>
         </div>
       </section>
@@ -60,7 +62,7 @@
         <div id="js-list_container">
           <div class="skeleton-loader"></div>
 
-          <div class="l-container c-card">
+          <div class="c-card">
             <div class="l-content">
               <div class="c-title">
                 <h2 role="component-title">List of blog posts</h2>
@@ -69,11 +71,11 @@
             <div class="accordion">
 
               <div class="accordion-panel">
-                <h2 id="panel1-title">
+                <h3 id="panel1-title">
                   <button class="accordion-trigger" aria-expanded="true" aria-controls="accordion1-content">
                     Grid is awesome
                   </button>
-                </h2>
+                </h3>
                 <div class="accordion-content" role="region" aria-labelledby="panel1-title" aria-hidden="false"
                   id="panel1-content">
                   <div>
@@ -83,11 +85,11 @@
               </div>
 
               <div class="accordion-panel">
-                <h2 id="panel2-title">
+                <h3 id="panel2-title">
                   <button class="accordion-trigger" aria-expanded="false" aria-controls="accordion1-content">
                     It's full of neat tricks
                   </button>
-                </h2>
+                </h3>
                 <div class="accordion-content" role="region" aria-labelledby="panel2-title" aria-hidden="true"
                   id="panel2-content">
                   <div>
@@ -105,11 +107,11 @@
               </div>
 
               <div class="accordion-panel">
-                <h2 id="panel3-title">
+                <h3 id="panel3-title">
                   <button class="accordion-trigger" aria-expanded="false" aria-controls="accordion1-content">
                     Tell me more
                   </button>
-                </h2>
+                </h3>
                 <div class="accordion-content" role="region" aria-labelledby="panel1-title" aria-hidden="true"
                   class="accordion-content" id="panel3-content">
                   <div>
@@ -119,11 +121,11 @@
               </div>
 
               <div class="accordion-panel">
-                <h2 id="panel4-title">
+                <h3 id="panel4-title">
                   <button class="accordion-trigger" aria-expanded="false" aria-controls="accordion1-content">
                     Lorem ipsum dolor sit
                   </button>
-                </h2>
+                </h3>
                 <div class="accordion-content" role="region" aria-labelledby="panel4-title" aria-hidden="true"
                   class="accordion-content" id="panel4-content">
                   <div>
@@ -134,11 +136,11 @@
               </div>
 
               <div class="accordion-panel">
-                <h2 id="panel5-title">
+                <h3 id="panel5-title">
                   <button class="accordion-trigger" aria-expanded="false" aria-controls="accordion5-content">
                     Consectetur adipisicing
                   </button>
-                </h2>
+                </h3>
                 <div class="accordion-content" role="region" aria-labelledby="panel5-title" aria-hidden="true"
                   class="accordion-content" id="panel3-content">
                   <div>

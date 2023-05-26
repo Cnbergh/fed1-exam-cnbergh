@@ -5,8 +5,8 @@ const menuLimit = 1;
 
 // Function to handle responsive changes
 setTimeout(function handleResponsive() {
-  const mobileMediaQuery = window.matchMedia("(max-width: 621px)");
-  const desktopMediaQuery = window.matchMedia("(min-width: 622px)");
+  const mobileMediaQuery = window.matchMedia("(max-width: 480px)");
+  const desktopMediaQuery = window.matchMedia("(min-width: 481px)");
 
   if (
     mobileMediaQuery.matches &&
@@ -17,7 +17,6 @@ setTimeout(function handleResponsive() {
     createNavModule.createMobileNav();
     currentNavType = "mobile";
     menuCounter++;
-    console.log("mobileNav created");
   } else if (
     desktopMediaQuery.matches &&
     currentNavType !== "desktop" &&
@@ -27,7 +26,6 @@ setTimeout(function handleResponsive() {
     createNavModule.createDesktopNav();
     currentNavType = "desktop";
     menuCounter++;
-    console.log("desktopNav created");
   }
   if (menuCounter === menuLimit) {
     menuCounter = 0;

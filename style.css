@@ -2,7 +2,7 @@
 
 @import "src/css/variables.css";
 @import "src/css/reset.css";
-@import "src/css/utilities.css";
 @import "src/css/layout.css";
 @import "src/css/form.css";
 @import "src/css/ui.css";
+@import "src/css/utilities.css";

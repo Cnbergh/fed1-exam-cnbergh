@@ -69,9 +69,9 @@
   --fw-bold: 700;
 
   /*-Font size*/
-  --fs-regular: 16px;
+  --fs-regular: 14px;
 
-  --fs-s: 14px;
+  --fs-s: 12px;
   --fs-m: 18px;
   --fs-l: 20px;
   --fs-xl: 24px;
@@ -85,8 +85,8 @@
 
   /*Grid*/
 
-  --column-count: 1;
-  --column-count: 2;
-  --column-count: 3;
-  --column-count: 4;
+  --column-count-1: 1;
+  --column-count-2: 2;
+  --column-count-3: 3;
+  --column-count-4: 4;
 }

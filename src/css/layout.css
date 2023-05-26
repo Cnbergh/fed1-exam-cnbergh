@@ -90,10 +90,12 @@ body {
 
 .l-container {
   width: 100%;
-  margin: 0 auto 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .l-latest-post {
+  grid-area: title;
   position: absolute;
 
   z-index: 4;

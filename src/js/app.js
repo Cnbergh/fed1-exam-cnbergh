@@ -52,7 +52,7 @@ https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#
  * @param {item} item The object with properties from the fetched JSON data.
  */
 
-/* const listContainer = document.querySelector(".js-list_container");
+const listContainer = document.querySelector(".js-list_container");
 const latestPostContainer = document.querySelector(".js-latest_container");
 
 const apiUrl = "https://rainydays.flywheelsites.com/wp-json/wp/v2/posts";
@@ -109,4 +109,3 @@ function renderPosts() {
     }
   }
 }
- */

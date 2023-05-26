@@ -4,7 +4,7 @@ const navigation = document.querySelector(".l-navbar");
 // Function to create HTML elements for desktop navigation
 
 export function createDesktopNav() {
-  if (window.matchMedia("(min-width: 622px)").matches) {
+  if (window.matchMedia("(min-width: 481px)").matches) {
     const navItems = [
       { role: "menu", text: "Menu" },
       { role: "about", text: "About us" },
@@ -38,7 +38,7 @@ export function createDesktopNav() {
 
 // Function to create HTML elements for mobile navigation
 export function createMobileNav() {
-  if (window.matchMedia("(max-width: 621px)").matches) {
+  if (window.matchMedia("(max-width: 480px)").matches) {
     const navItems = [
       { role: "search", text: "Search...", icon: "search" },
       { role: "hamburger-menu", text: "", icon: "c-hamburger-bars" },
