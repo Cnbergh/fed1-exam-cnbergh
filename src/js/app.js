@@ -52,35 +52,59 @@ https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#
  * @param {item} item The object with properties from the fetched JSON data.
  */
 
-const listContainer = document.querySelector(".js-list_container");
+const blogListContainer = document.getElementById("blog-list-container");
 const latestPostContainer = document.querySelector(".js-latest_container");
 
-const apiUrl = "https://rainydays.flywheelsites.com/wp-json/wp/v2/posts";
+const apiUrl = "https://slow-mo.flywheelsites.com/wp-json/wp/v2/posts";
+const mediaUrl = "https://slow-mo.flywheelsites.com/wp-json/wp/v2/media";
 
 let posts = [];
+let mediaData = [];
 
-async function fetchBlogData(post) {
+async function getMedia() {
+  const allMediaRes = await fetch(mediaUrl);
+  const allMediaData = (await allMediaRes.json()) || [];
+
+  console.log("allMediaData", allMediaData);
+
+  mediaData = allMediaData;
+
+  if (mediaData.length > 0) {
+    console.log("mediaData", mediaData);
+    fetchBlogData();
+  }
+}
+
+getMedia();
+
+async function fetchBlogData() {
   try {
     if (!posts) listContainer.innerHTML = `<div class="skeleton-loader"></div>`;
 
     const response = await fetch(apiUrl);
-    const resultsData = (await response.json()) || [];
+    const postsData = (await response.json()) || [];
 
-    console.log("resultData", resultsData);
+    console.log("resultData", postsData);
 
-    posts = resultsData.map((post) => {
+    posts = postsData.map((post) => {
+      console.log("mediaData", mediaData);
+
+      const media =
+        mediaData.find((item) => item.id === post.featured_media) || null;
+
       return {
-        ...post,
         id: post.id,
         date: post.date,
-        title: post.title,
-        image: post.featured_media[0],
+        title: post.title.rendered,
+        imageData: media,
         content: post.content.rendered,
       };
     });
     localStorage.setItem("fetchedPosts", JSON.stringify(posts));
 
-    renderPosts();
+    if (posts.length > 0) {
+      renderPosts();
+    }
 
     console.log("posts", posts);
   } catch (error) {
@@ -88,23 +112,29 @@ async function fetchBlogData(post) {
   }
 }
 
-fetchBlogData(posts);
-
 function renderPosts() {
-  if (listContainer) {
-    listContainer.innerHTML = "";
-
-    console.log("hmm", renderPosts);
-
+  if (blogListContainer) {
+    blogListContainer.innerHTML = "";
     if (posts.length) {
-      posts.forEach(function (post) {
-        let postLink = `<a href="details.html?id=${post.id}" class="cta">View</a>`;
-
-        listContainer.innerHTML += `<div class="skeleton-loader"></div>
-        <h2>${post.title}</h2>
-        <img src="${post.featured_media[0]}" alt="${post.id}" class="u-img hero-image" />
-        <p>${post.content}</p>
-        ${postLink}`;
+      posts.forEach((post, i) => {
+        blogListContainer.innerHTML += `<div class="accordion-panel">
+        <h3 id="panel1-title">
+          <button class="accordion-trigger" aria-expanded="${
+            i === 0 ? true : false
+          }" aria-controls="accordion1-content">
+          ${post.title}
+          </button>
+        </h3>
+        <div class="accordion-content" role="region" aria-labelledby="panel1-title" aria-hidden="${
+          i === 0 ? false : true
+        }"
+          id="panel1-content">
+          <div>
+          ${post.content}
+          </div>
+        </div>
+      </div>
+        `;
       });
     }
   }

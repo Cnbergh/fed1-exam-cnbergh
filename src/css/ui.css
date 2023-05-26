@@ -243,6 +243,7 @@ h3 {
 
 
 .b-cta {
+  min-width: 200px;
   height: 60px;
   background: var(--color-secondary-background);
   border: 0;

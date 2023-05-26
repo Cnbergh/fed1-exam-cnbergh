@@ -65,7 +65,7 @@
   .l-container {
     width: 100%;
     display: grid;
-    grid-template-columns: var(--column-count-2), minmax(200px, 100%), 1fr;
+    grid-template-columns: var(--column-count-2), minmax(350px, 100%), 1fr;
     grid-template-rows: 2;
     grid-template-areas:
       "title hero-img"
@@ -85,5 +85,23 @@
 @media screen and (min-width: 1025px) and (max-width: 1728px) {
   body {
     min-width: 1025px;
+  }
+
+  .l-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: var(--column-count-2), minmax(350px, 100%), 1fr;
+    grid-template-rows: 2;
+    grid-template-areas:
+      "title hero-img"
+      "text-box hero-img";
+  }
+
+  .hero-image {
+    height: 400px;
+  }
+
+  .l-latest-post {
+    position: relative;
   }
 }
