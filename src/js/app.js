@@ -88,7 +88,8 @@ async function fetchBlogData() {
     console.log("mediaData", mediaData);
 
     posts = postsData.map((post) => {
-      const media = mediaData.find((media) => media.post === post.id) || null;
+      const media =
+        mediaData.find((item) => item.id === post.featured_media) || null;
 
       return {
         id: post.id,
