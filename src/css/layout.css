@@ -95,7 +95,6 @@ body {
 
 .l-latest-post {
   position: absolute;
-  
+
   z-index: 4;
-  color:var(--color-dark-blue);
 }

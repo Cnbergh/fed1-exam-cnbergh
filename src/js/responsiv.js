@@ -1,21 +1,37 @@
+import * as createNavModule from "./l-nav.js";
+let currentNavType = null;
+let menuCounter = 0;
+const menuLimit = 1;
+
 // Function to handle responsive changes
-function handleResponsiveChanges() {
-  const navigation = document.querySelector(".l-navbar");
-  const isMobile = window.width <= 621; // Adjust the breakpoint as per your needs
+setTimeout(function handleResponsive() {
+  const mobileMediaQuery = window.matchMedia("(max-width: 621px)");
+  const desktopMediaQuery = window.matchMedia("(min-width: 622px)");
 
-  if (isMobile) {
-    // Show mobile navigation, hide desktop navigation
-    navigation.classList.remove("desktop-nav");
-    navigation.classList.add("mobile-nav");
-  } else {
-    // Show desktop navigation, hide mobile navigation
-    navigation.classList.remove("mobile-nav");
-    navigation.classList.add("desktop-nav");
+  if (
+    mobileMediaQuery.matches &&
+    currentNavType !== "mobile" &&
+    menuCounter < menuLimit
+  ) {
+    createNavModule.removeDesktopNav();
+    createNavModule.createMobileNav();
+    currentNavType = "mobile";
+    menuCounter++;
+    console.log("mobileNav created");
+  } else if (
+    desktopMediaQuery.matches &&
+    currentNavType !== "desktop" &&
+    menuCounter < menuLimit
+  ) {
+    createNavModule.removeMobileNav();
+    createNavModule.createDesktopNav();
+    currentNavType = "desktop";
+    menuCounter++;
+    console.log("desktopNav created");
   }
-}
+  if (menuCounter === menuLimit) {
+    menuCounter = 0;
+  }
 
-// Add event listener for viewport size changes
-window.addEventListener("resize", handleResponsiveChanges);
-visualViewport.addEventListener("resize", handleResponsiveChanges);
-// Call the function initially to set the correct navigation menu on page load
-handleResponsiveChanges();
+  window.addEventListener("resize", handleResponsive);
+}, 200);
