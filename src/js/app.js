@@ -53,9 +53,10 @@ https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#
  */
 
 const blogListContainer = document.getElementById("blog-list-container");
-const latestPostContainer = document.querySelector(".js-latest_container");
+const latestPostContainer = document.getElementById("latest-post-container");
 
-const apiUrl = "https://slow-mo.flywheelsites.com/wp-json/wp/v2/posts";
+const apiUrl =
+  "https://slow-mo.flywheelsites.com/wp-json/wp/v2/posts?orderby=date";
 const mediaUrl = "https://slow-mo.flywheelsites.com/wp-json/wp/v2/media";
 
 let posts = [];
@@ -69,8 +70,7 @@ async function getMedia() {
 
   mediaData = allMediaData;
 
-  if (mediaData.length > 0) {
-    console.log("mediaData", mediaData);
+  if (mediaData.length > 5) {
     fetchBlogData();
   }
 }
@@ -85,10 +85,9 @@ async function fetchBlogData() {
     const postsData = (await response.json()) || [];
 
     console.log("resultData", postsData);
+    console.log("mediaData", mediaData);
 
     posts = postsData.map((post) => {
-      console.log("mediaData", mediaData);
-
       const media =
         mediaData.find((item) => item.id === post.featured_media) || null;
 
@@ -104,11 +103,43 @@ async function fetchBlogData() {
 
     if (posts.length > 0) {
       renderPosts();
+      renderLatestPost();
     }
 
     console.log("posts", posts);
   } catch (error) {
     console.log("Error fetching posts:", error);
+  }
+}
+
+function renderLatestPost() {
+  if (latestPostContainer) {
+    latestPostContainer.innerHTML = "";
+    if (posts.length) {
+      const latestPost = posts[0];
+      latestPostContainer.innerHTML += `<div class="l-container c-card">
+        <div class="c-title l-latest-post">
+          <h2 role="component-title">Latest post</h2>
+        </div>
+        ${
+          latestPost.imageData?.source_url
+            ? `
+          <img src="${latestPost.imageData?.source_url}" loading="lazy" alt="…" class="hero-image skeleton-loader" />`
+            : null
+        }
+        <div class="c-text_wrapper">
+          <h3 role="feature heading" class="c-card-title">${
+            latestPost.title
+          }</h3>
+          <p role="feature description" class="c-card-text">${
+            latestPost.content
+          }</p>
+          <div class="skeleton-loader skeleton-text"></div>
+          <button class="b-cta">See more</button>
+        </div>
+      </div>
+        `;
+    }
   }
 }
 
@@ -129,6 +160,9 @@ function renderPosts() {
           i === 0 ? false : true
         }"
           id="panel1-content">
+          <img src="${
+            post.imageData?.source_url
+          }" loading="lazy" alt="…" class="hero-image skeleton-loader" />
           <div>
           ${post.content}
           </div>
