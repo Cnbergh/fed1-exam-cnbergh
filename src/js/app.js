@@ -88,8 +88,7 @@ async function fetchBlogData() {
     console.log("mediaData", mediaData);
 
     posts = postsData.map((post) => {
-      const media =
-        mediaData.find((item) => item.id === post.featured_media) || null;
+      const media = mediaData.find((media) => media.post === post.id) || null;
 
       return {
         id: post.id,
@@ -160,9 +159,6 @@ function renderPosts() {
           i === 0 ? false : true
         }"
           id="panel1-content">
-          <img src="${
-            post.imageData?.source_url
-          }" loading="lazy" alt="…" class="hero-image skeleton-loader" />
           <div>
           ${post.content}
           </div>
