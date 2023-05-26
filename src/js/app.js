@@ -70,7 +70,7 @@ async function getMedia() {
 
   mediaData = allMediaData;
 
-  if (mediaData.length > 5) {
+  if (mediaData.length > 0) {
     fetchBlogData();
   }
 }
