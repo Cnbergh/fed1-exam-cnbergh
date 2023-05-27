@@ -46,54 +46,64 @@ Helper functions
  */
 
 const blogDetailContainer = document.querySelector(".blog-specific");
-
 const queryString = document.location.search;
+const params = new URLSearchParams(queryString);
 
-const postId = new URLSearchParams(window.location.search).get("id");
+const postId = params.get("id");
+const mediaId = params.get("media");
 
 console.log(postId);
+console.log(mediaId);
 
-const apiUrl = `https://slow-mo.flywheelsites.com/wp-json/wp/v2/post/${postId}`;
+const apiUrl = `https://slow-mo.flywheelsites.com/wp-json/wp/v2/posts?post=${postId}`;
+const mediaUrl = `https://slow-mo.flywheelsites.com/wp-json/wp/v2/media?media=${mediaId}`;
 
+console.log(mediaUrl);
 console.log(apiUrl);
+let post = [];
+let mediaData = [];
 
-async function fetchBlogSpecificData() {
-  try {
-    const response = await fetch(apiUrl);
-    const postData = await response.json();
-    console.log("post specific", postData);
-    // Render the specific post data on the blog-specific page
-    renderBlogPost(postData);
-  } catch (error) {
-    console.log("Error fetching blog post:", error);
-    blogDetailContainer.innerHTML = message("error", error);
+async function getMediaSpecific() {
+  const MediaRes = await fetch(mediaUrl);
+  const MediaData = (await MediaRes.json()) || [];
+
+  console.log("allMediaData", MediaData);
+
+  mediaData = MediaData;
+
+  if (mediaData.length > 0) {
+    fetchBlogSpecificData();
   }
 }
 
-function renderBlogPost(postData) {
-  if (blogDetailContainer) {
-    blogDetailContainer.innerHTML = "";
+getMediaSpecific();
 
-    blogDetailContainer.innerHTML += `<div class="l-container c-card">
-            <div class="c-title l-latest-post">
-              <h2 role="component-title">Latest post</h2>
-            </div>
-            ${
-              postData.imageData?.source_url
-                ? `
-              <img src="${postData.imageData?.source_url}" loading="lazy" alt="…" class="hero-image" />`
-                : null
-            }
-            <div class="c-text_wrapper">
-              <h3 role="feature heading" class="c-card-title">${
-                postData.title
-              }</h3>
-              <p role="feature description" class="c-card-text">${
-                postData.content
-              }</p>
-              <button class="b-cta">See more</button>
-            </div>
-          </div>
-            `;
+async function fetchBlogSpecificData() {
+  try {
+    if (!post) listContainer.innerHTML = `<div class="skeleton-loader"></div>`;
+
+    const ApiRes = await fetch(apiUrl);
+    const postData = await ApiRes.json();
+    console.log("resultData", postData);
+
+    post = {
+      id: postData.id,
+      date: postData.date,
+      title: postData.title,
+      imageData:
+        mediaData.find((item) => item.id === postData.featured_media) || null,
+      content: postData.content,
+    };
+    localStorage.setItem("fetchedPost", JSON.stringify(post));
+
+    createHtml(post);
+  } catch (error) {
+    console.log("Error fetching blog post:", error);
   }
+}
+
+function createHtml(post) {
+  blogDetailContainer.innerHTML = `
+        <h2>${post.title}</h2>
+        <div class="details-description">${post.content}</div>`;
 }

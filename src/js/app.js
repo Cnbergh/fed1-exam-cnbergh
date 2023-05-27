@@ -82,7 +82,7 @@ function renderLatestPost() {
           }</p>
           <button onclick="window.location.href='/src/pages/blog-specific.html?id=${
             latestPost.id
-          }'" class="b-cta">See more</button>
+          }&media=${latestPost.imageData?.id}'" class="b-cta">See more</button>
         </div>
       </div>
         `;
