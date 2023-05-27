@@ -82,10 +82,11 @@
 }
 
 
-@media screen and (min-width: 1025px) and (max-width: 100%) {
+@media screen and (min-width: 1025px) and (max-width: 100vw) {
   body {
     min-width: 1025px;
   }
+
 
   .l-container {
     width: 100%;
