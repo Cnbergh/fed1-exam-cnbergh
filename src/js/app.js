@@ -7,6 +7,7 @@ const mediaUrl = "https://slow-mo.flywheelsites.com/wp-json/wp/v2/media";
 
 let posts = [];
 let mediaData = [];
+let loadedPosts = 10;
 
 async function getMedia() {
   const allMediaRes = await fetch(mediaUrl);
@@ -33,18 +34,20 @@ async function fetchBlogData() {
     console.log("resultData", postsData);
     console.log("mediaData", mediaData);
 
-    posts = postsData.map((post) => {
-      const media =
-        mediaData.find((item) => item.id === post.featured_media) || null;
+    posts = posts.concat(
+      postsData.map((post) => {
+        const media =
+          mediaData.find((item) => item.id === post.featured_media) || null;
 
-      return {
-        id: post.id,
-        date: post.date,
-        title: post.title.rendered,
-        imageData: media,
-        content: post.content.rendered,
-      };
-    });
+        return {
+          id: post.id,
+          date: post.date,
+          title: post.title.rendered,
+          imageData: media,
+          content: post.content.rendered,
+        };
+      })
+    );
     localStorage.setItem("fetchedPosts", JSON.stringify(posts));
 
     if (posts.length > 0) {
@@ -56,6 +59,15 @@ async function fetchBlogData() {
   } catch (error) {
     console.log("Error fetching posts:", error);
   }
+  const seeMoreButton = document.getElementById("see-more-button");
+  if (posts.length < loadedPosts) {
+    seeMoreButton.disabled = true;
+    seeMoreButton.textContent = "No more posts";
+  } else {
+    seeMoreButton.disabled = false;
+    seeMoreButton.textContent = "See more posts";
+  }
+  seeMoreButton.addEventListener("click", fetchBlogData);
 }
 
 function renderLatestPost() {
@@ -111,7 +123,7 @@ function renderPosts() {
           ${post.content}
           <button onclick="window.location.href='/src/pages/blog-specific.html?id=${
             post.id
-          }'" class="b-cta">See more</button>
+          }&media=${post.imageData?.id}'" class="b-cta">See more</button>
           </div>
         </div>
       </div>
