@@ -167,7 +167,6 @@
   width: auto;
   display: flex;
   flex-direction: column;
-  align-content: center;
   justify-content: space-between;
   word-wrap: break-word;
   grid-area: text-box;

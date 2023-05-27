@@ -6,10 +6,10 @@ const navigation = document.querySelector(".l-navbar");
 export function createDesktopNav() {
   if (window.matchMedia("(min-width: 481px)").matches) {
     const navItems = [
-      { role: "menu", text: "Menu" },
-      { role: "about", text: "About us" },
-      { role: "blog", text: "Blog" },
-      { role: "contact", text: "Contact us" },
+      { role: "menu", text: "Menu", link: "#" },
+      { role: "about", text: "About us", link: "/src/pages/about.html" },
+      { role: "blog", text: "Blog", link: "/src/pages/blog.html" },
+      { role: "contact", text: "Contact us", link: "/src/pages/contact.html" },
     ];
 
     const navList = document.createElement("ul");
@@ -22,7 +22,7 @@ export function createDesktopNav() {
       listItem.classList.add("c-card");
 
       const link = document.createElement("a");
-      link.href = "#";
+      link.href = item.link;
 
       const heading = document.createElement("h3");
       heading.textContent = item.text;

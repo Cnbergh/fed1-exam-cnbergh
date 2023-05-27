@@ -65,15 +65,12 @@
   .l-container {
     width: 100%;
     display: grid;
-    grid-template-columns: var(--column-count-2), minmax(350px, 100%), 1fr;
-    grid-template-rows: 2;
+    grid-template-columns: var(--column-count-2), minmax(280px, 50%), 1fr;
+    grid-template-rows: auto;
     grid-template-areas:
       "title hero-img"
+      "text-box hero-img"
       "text-box hero-img";
-  }
-
-  .hero-image {
-    height: 400px;
   }
 
   .l-latest-post {
@@ -91,15 +88,12 @@
   .l-container {
     width: 100%;
     display: grid;
-    grid-template-columns: var(--column-count-2), minmax(350px, 100%), 1fr;
-    grid-template-rows: 2;
+    grid-template-columns: var(--column-count-2), minmax(280px, 50%), 1fr;
+    grid-template-rows: auto;
     grid-template-areas:
       "title hero-img"
+      "text-box hero-img"
       "text-box hero-img";
-  }
-
-  .hero-image {
-    height: 400px;
   }
 
   .l-latest-post {

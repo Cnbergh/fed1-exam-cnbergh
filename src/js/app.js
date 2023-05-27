@@ -70,7 +70,7 @@ function renderLatestPost() {
         ${
           latestPost.imageData?.source_url
             ? `
-          <img src="${latestPost.imageData?.source_url}" loading="lazy" alt="…" class="hero-image skeleton-loader" />`
+          <img src="${latestPost.imageData?.source_url}" loading="lazy" alt="…" class="hero-image" />`
             : null
         }
         <div class="c-text_wrapper">
@@ -80,8 +80,9 @@ function renderLatestPost() {
           <p role="feature description" class="c-card-text">${
             latestPost.content
           }</p>
-          <div class="skeleton-loader skeleton-text"></div>
-          <button class="b-cta">See more</button>
+          <button onclick="window.location.href='/src/pages/blog-specific.html?id=${
+            latestPost.id
+          }'" class="b-cta">See more</button>
         </div>
       </div>
         `;
@@ -108,6 +109,9 @@ function renderPosts() {
           id="panel1-content">
           <div>
           ${post.content}
+          <button onclick="window.location.href='/src/pages/blog-specific.html?id=${
+            post.id
+          }'" class="b-cta">See more</button>
           </div>
         </div>
       </div>
