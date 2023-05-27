@@ -82,7 +82,7 @@
 }
 
 
-@media screen and (min-width: 1025px) and (max-width: 1728px) {
+@media screen and (min-width: 1025px) and (max-width: 100%) {
   body {
     min-width: 1025px;
   }
