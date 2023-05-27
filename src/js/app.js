@@ -1,5 +1,8 @@
 const blogListContainer = document.getElementById("blog-list-container");
 const latestPostContainer = document.getElementById("latest-post-container");
+const blogListCarouselContainer = document.getElementById(
+  "carousel-blog-list-container"
+);
 
 const apiUrl =
   "https://slow-mo.flywheelsites.com/wp-json/wp/v2/posts?orderby=date";
@@ -53,6 +56,7 @@ async function fetchBlogData() {
     if (posts.length > 0) {
       renderPosts();
       renderLatestPost();
+      renderCarousel(); // Render the carousel
     }
 
     console.log("posts", posts);
@@ -70,6 +74,37 @@ async function fetchBlogData() {
   seeMoreButton.addEventListener("click", fetchBlogData);
 }
 
+function renderPosts() {
+  if (blogListContainer) {
+    blogListContainer.innerHTML = "";
+    if (posts.length) {
+      posts.forEach((post, i) => {
+        blogListContainer.innerHTML += `<div class="accordion-panel">
+          <h3 id="panel${i + 1}-title">
+            <button class="accordion-trigger" aria-expanded="${
+              i === 0 ? true : false
+            }" aria-controls="accordion${i + 1}-content">
+            ${post.title}
+            </button>
+          </h3>
+          <div class="accordion-content" role="region" aria-labelledby="panel${
+            i + 1
+          }-title" aria-hidden="${i === 0 ? false : true}" id="panel${
+          i + 1
+        }-content">
+            <div>
+            ${post.content}
+            <button onclick="window.location.href='/src/pages/blog-specific.html?id=${
+              post.id
+            }&media=${post.imageData?.id}'" class="b-cta">See more</button>
+            </div>
+          </div>
+        </div>`;
+      });
+    }
+  }
+}
+
 function renderLatestPost() {
   if (latestPostContainer) {
     latestPostContainer.innerHTML = "";
@@ -83,7 +118,7 @@ function renderLatestPost() {
           latestPost.imageData?.source_url
             ? `
           <img src="${latestPost.imageData?.source_url}" loading="lazy" alt="…" class="hero-image" />`
-            : null
+            : ""
         }
         <div class="c-text_wrapper">
           <h3 role="feature heading" class="c-card-title">${
@@ -96,39 +131,61 @@ function renderLatestPost() {
             latestPost.id
           }&media=${latestPost.imageData?.id}'" class="b-cta">See more</button>
         </div>
-      </div>
-        `;
+      </div>`;
     }
   }
 }
 
-function renderPosts() {
-  if (blogListContainer) {
-    blogListContainer.innerHTML = "";
+function renderCarousel() {
+  if (blogListCarouselContainer) {
+    blogListCarouselContainer.innerHTML = "";
     if (posts.length) {
+      const carouselContainer = document.createElement("div");
+      carouselContainer.classList.add("carousel-container");
+
+      const carouselList = document.createElement("ul");
+      carouselList.classList.add("carousel-list");
+
       posts.forEach((post, i) => {
-        blogListContainer.innerHTML += `<div class="accordion-panel">
-        <h3 id="panel1-title">
-          <button class="accordion-trigger" aria-expanded="${
-            i === 0 ? true : false
-          }" aria-controls="accordion1-content">
-          ${post.title}
-          </button>
-        </h3>
-        <div class="accordion-content" role="region" aria-labelledby="panel1-title" aria-hidden="${
-          i === 0 ? false : true
-        }"
-          id="panel1-content">
-          <div>
-          ${post.content}
-          <button onclick="window.location.href='/src/pages/blog-specific.html?id=${
-            post.id
-          }&media=${post.imageData?.id}'" class="b-cta">See more</button>
+        const carouselItem = document.createElement("li");
+        carouselItem.classList.add("carousel-item");
+
+        carouselItem.innerHTML = `
+          <div class="carousel-card">
+            <h3 class="carousel-title">${post.title}</h3>
+            <img class="carousel-image" src="${post.imageData?.source_url}" alt="Post Image" />
+            <p class="carousel-content">${post.content}</p>
+            <button onclick="window.location.href='/src/pages/blog-specific.html?id=${post.id}&media=${post.imageData?.id}'" class="carousel-button">See more</button>
           </div>
-        </div>
-      </div>
         `;
+
+        carouselList.appendChild(carouselItem);
       });
+
+      carouselContainer.appendChild(carouselList);
+      blogListCarouselContainer.appendChild(carouselContainer);
+
+      // Add sliding functionality
+      const carouselItems = carouselList.querySelectorAll(".carousel-item");
+      const carouselWidth = carouselContainer.offsetWidth;
+      let currentIndex = 0;
+
+      const showSlide = (index) => {
+        carouselList.style.transform = `translateX(-${
+          index * carouselWidth
+        }px)`;
+      };
+
+      const nextSlide = () => {
+        if (currentIndex === carouselItems.length - 1) {
+          currentIndex = 0;
+        } else {
+          currentIndex++;
+        }
+        showSlide(currentIndex);
+      };
+
+      setInterval(nextSlide, 5000); // Auto-slide every 5 seconds
     }
   }
 }

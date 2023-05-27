@@ -15,7 +15,3 @@ document.addEventListener(
   },
   false
 );
-
-// window.onload = function() {
-//   hideLoader();
-// };

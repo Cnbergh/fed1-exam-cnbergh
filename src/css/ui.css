@@ -251,3 +251,85 @@ h3 {
   font: inherit;
   color: var(--color-light-pink);
 }
+
+
+
+
+/*carusel*/
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-list {
+  display: flex;
+  transition: transform 0.5s ease;
+  transition-delay: 200ms;
+}
+
+.carousel-list>ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.carousel-list>li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.carousel-card {
+  max-width: 240px;
+  background-color: #f2f2f2;
+  padding: 1%;
+  text-align: center;
+}
+
+.carousel-title {
+  font-size: 18px;
+  margin-bottom: 1%;
+}
+
+.carousel-image {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.carousel-content {
+  margin-bottom: 1%;
+}
+
+.carousel-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.carousel-item {
+  flex: 0 0 100%;
+}
+
+/* Media Queries */
+@media (min-width: 280px) {
+  .carousel-item {
+    flex: 0 0 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .carousel-item {
+    flex: 0 0 50%;
+  }
+}
+
+@media (min-width: 992px) {
+  .carousel-item {
+    flex: 0 0 33.33%;
+  }
+}
