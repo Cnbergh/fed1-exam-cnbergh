@@ -47,35 +47,45 @@
       <section role="latest-post">
         <div id="latest-post-container" class="error-message">
           <div class="l-container c-card">
-            <div class="c-title l-latest-post">
-              <h2 role="component-title">Latest post</h2>
-            </div>
-            <img src="/assets/placeholder.jpg" loading="lazy" alt="…" class="hero-image skeleton-loader" />
+            <div class="c-title l-latest-post skeleton">...Loading</div>
+            <img class="hero-image skeleton" src="/public/placeholder.jpg" loading="lazy"
+              alt="placeholder img skeleton-loader" />
             <div class="c-text_wrapper">
-              <h3 role="feature heading" class="c-card-title">Feature Heading</h3>
-              <p role="feature description" class="c-card-text">Short, concise text that describes the feature</p>
-              <button class="b-cta">See more</button>
-              <div class="skeleton-loader skeleton-text"></div>
+              <div role="feature heading" class="c-card-title">
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text"></div>
+              </div>
+              <div role="feature description" class="c-card-text">
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text"></div>
+              </div>
+              <button class="b-cta skeleton"></button>
             </div>
           </div>
         </div>
       </section>
 
       <section role="blog-list">
-        <div class="skeleton-loader"></div>
         <div class="c-card">
-          <div class="l-content">
-            <div class="c-title">
-              <h2 role="component-title">List of blog posts</h2>
-            </div>
-          </div>
           <div class="accordion">
             <div id="blog-list-container">
+              <div class="c-title skeleton">
+                <div class="skeleton skeleton-text"></div>
+              </div>
+              <div class="c-card-text">
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text"></div>
+              </div>
+              <div class="c-card-text">
+                <div class="skeleton skeleton-text"></div>
+              </div>
             </div>
             <button id="see-more-button" onclick="fetchBlogData()" class="b-cta">See more posts</button>
           </div>
-          <div id="carousel-blog-list-container"></div>
         </div>
+        <div id="carousel-blog-list-container"></div>
       </section>
 
       <section role="about">

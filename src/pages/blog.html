@@ -28,10 +28,10 @@
 <body>
     <div id="loader" class="loader">
         <div id="loader-bar" class="loader-bar"></div>
-      </div>
+    </div>
     <header class="l-header">
         <div class="page-title">
-            <h1 role="title">blog page</h1>
+            <h1 role="title">blog-page</h1>
         </div>
         <nav class="l-navbar">
             <div class="c-logo">
@@ -46,17 +46,23 @@
         <article role="main-content">
 
             <section role="blog-list">
-                <div class="skeleton-loader"></div>
                 <div class="c-card">
-                    <div class="l-content">
-                        <div class="c-title">
-                            <h2 role="component-title">List of blog posts</h2>
-                        </div>
-                    </div>
                     <div class="accordion">
                         <div id="blog-list-container">
+                            <div class="c-title skeleton">
+                                <div class="skeleton skeleton-text"></div>
+                            </div>
+                            <div class="c-card-text">
+                                <div class="skeleton skeleton-text"></div>
+                                <div class="skeleton skeleton-text"></div>
+                                <div class="skeleton skeleton-text"></div>
+                            </div>
+                            <div class="c-card-text">
+                                <div class="skeleton skeleton-text"></div>
+                            </div>
                         </div>
-                        <button id="see-more-button" onclick="fetchBlogData()" class="b-cta">See more posts</button>
+                        <button id="see-more-button" onclick="fetchBlogData()" class="b-cta">See more
+                            posts</button>
                     </div>
                 </div>
             </section>

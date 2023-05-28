@@ -40,7 +40,7 @@ const carouselContainer = document.getElementById(
   "carousel-blog-list-container"
 );
 
-/* function handleResponsiveLayout(mediaQuery) {
+function handleResponsiveLayout(mediaQuery) {
   if (mediaQuery.matches) {
     // Screen width is greater than 480px
     if (blogListContainer && carouselContainer) {
@@ -73,4 +73,3 @@ handleResponsiveLayout(mediaQuery);
 
 // Add event listener for changes in screen width
 mediaQuery.addEventListener("change", handleResponsiveLayout);
- */

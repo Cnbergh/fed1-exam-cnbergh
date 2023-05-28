@@ -95,6 +95,7 @@ body {
 }
 
 .l-latest-post {
+  width: 93%;
   grid-area: title;
   position: absolute;
 

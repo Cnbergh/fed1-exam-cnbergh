@@ -56,7 +56,7 @@ async function fetchBlogData() {
     if (posts.length > 0) {
       renderPosts();
       renderLatestPost();
-      renderCarousel(); // Render the carousel
+      renderCarousel();
     }
 
     console.log("posts", posts);
@@ -78,6 +78,11 @@ function renderPosts() {
   if (blogListContainer) {
     blogListContainer.innerHTML = "";
     if (posts.length) {
+      const blogListHeader = document.createElement("h2");
+      blogListHeader.textContent = "List of blog posts";
+      blogListHeader.classList.add("c-title");
+      blogListContainer.appendChild(blogListHeader);
+
       posts.forEach((post, i) => {
         blogListContainer.innerHTML += `<div class="accordion-panel">
           <h3 id="panel${i + 1}-title">
