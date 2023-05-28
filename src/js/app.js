@@ -169,55 +169,60 @@ function renderLatestPost() {
 }
 
 function renderCarousel() {
-  if (blogListCarouselContainer) {
-    blogListCarouselContainer.innerHTML = "";
-    if (posts.length) {
-      const carouselContainer = document.createElement("div");
-      carouselContainer.classList.add("carousel-container");
+  const carouselWrapper = document.getElementById("carousel-wrapper");
+  const carouselList = document.createElement("ul");
+  carouselList.classList.add("carousel-list");
 
-      const carouselList = document.createElement("ul");
-      carouselList.classList.add("carousel-list");
+  if (posts.length) {
+    posts.forEach((post, i) => {
+      const carouselItem = document.createElement("li");
+      carouselItem.classList.add("carousel-item");
 
-      posts.forEach((post, i) => {
-        const carouselItem = document.createElement("li");
-        carouselItem.classList.add("carousel-item");
+      carouselItem.innerHTML = `
+        <div class="carousel-card">
+          <h3 class="carousel-title">${post.title}</h3>
+          <img class="carousel-image" src="${post.imageData?.source_url}" alt="Post Image" />
+          <p class="carousel-content">${post.content}</p>
+          <button onclick="window.location.href='/src/pages/blog-specific.html?id=${post.id}&media=${post.imageData?.id}'" class="carousel-button">See more</button>
+        </div>
+      `;
 
-        carouselItem.innerHTML = `
-          <div class="carousel-card">
-            <h3 class="carousel-title">${post.title}</h3>
-            <img class="carousel-image" src="${post.imageData?.source_url}" alt="Post Image" />
-            <p class="carousel-content">${post.content}</p>
-            <button onclick="window.location.href='/src/pages/blog-specific.html?id=${post.id}&media=${post.imageData?.id}'" class="carousel-button">See more</button>
-          </div>
-        `;
+      carouselList.appendChild(carouselItem);
+    });
 
-        carouselList.appendChild(carouselItem);
-      });
+    carouselWrapper.appendChild(carouselList);
 
-      carouselContainer.appendChild(carouselList);
-      blogListCarouselContainer.appendChild(carouselContainer);
+    // Add sliding functionality
+    const carouselItems = carouselList.querySelectorAll(".carousel-item");
+    const carouselWidth = carouselWrapper.offsetWidth;
+    let currentIndex = 0;
 
-      // Add sliding functionality
-      const carouselItems = carouselList.querySelectorAll(".carousel-item");
-      const carouselWidth = carouselContainer.offsetWidth;
-      let currentIndex = 0;
+    const showSlide = (index) => {
+      carouselList.style.transform = `translateX(-${index * carouselWidth}px)`;
+    };
 
-      const showSlide = (index) => {
-        carouselList.style.transform = `translateX(-${
-          index * carouselWidth
-        }px)`;
-      };
+    const previousSlide = () => {
+      if (currentIndex === 0) {
+        currentIndex = carouselItems.length - 1;
+      } else {
+        currentIndex--;
+      }
+      showSlide(currentIndex);
+    };
 
-      const nextSlide = () => {
-        if (currentIndex === carouselItems.length - 1) {
-          currentIndex = 0;
-        } else {
-          currentIndex++;
-        }
-        showSlide(currentIndex);
-      };
+    const nextSlide = () => {
+      if (currentIndex === carouselItems.length - 1) {
+        currentIndex = 0;
+      } else {
+        currentIndex++;
+      }
+      showSlide(currentIndex);
+    };
 
-      setInterval(nextSlide, 5000); // Auto-slide every 5 seconds
-    }
+    const previousOption = document.getElementById("previous-option");
+    const nextOption = document.getElementById("next-option");
+
+    previousOption.addEventListener("click", previousSlide);
+    nextOption.addEventListener("click", nextSlide);
   }
 }
