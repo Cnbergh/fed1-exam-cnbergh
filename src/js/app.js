@@ -77,7 +77,7 @@ async function fetchBlogData() {
     if (posts.length > 0) {
       renderPosts();
       renderLatestPost();
-      renderCarousel();
+      /* renderCarousel(); */
     }
 
     console.log("posts", posts);
@@ -168,7 +168,7 @@ function renderLatestPost() {
   }
 }
 
-function renderCarousel() {
+/* function renderCarousel() {
   const carouselWrapper = document.getElementById("carousel-wrapper");
   const carouselList = document.createElement("ul");
   carouselList.classList.add("carousel-list");
@@ -229,3 +229,4 @@ function renderCarousel() {
     showSlide(carouselItems.length - 1);
   }
 }
+ */
