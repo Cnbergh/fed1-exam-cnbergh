@@ -100,7 +100,7 @@ export function createMobileNav() {
   }
 }
 
-//Function to remove HTML elements for mobile navigation
+
 export function removeMobileNav() {
   const mobileNav = document.querySelector(".mobile-nav");
   if (mobileNav) {
@@ -108,7 +108,7 @@ export function removeMobileNav() {
   }
 }
 
-//Function to remove HTML elements for desktop navigation
+
 export function removeDesktopNav() {
   const desktopNav = document.querySelector(".c-navbar");
   if (desktopNav) {

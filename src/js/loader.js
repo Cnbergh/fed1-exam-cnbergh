@@ -3,11 +3,11 @@ function hideLoader() {
   loader.style.display = "none";
 }
 
-// Event listener for window.onload
+
 document.addEventListener(
   "DOMContentLoaded",
   function () {
-    // your code here
+
 
     setTimeout(() => {
       hideLoader();
