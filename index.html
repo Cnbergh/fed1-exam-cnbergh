@@ -66,6 +66,28 @@
         </div>
       </section>
 
+      <section role="about">
+        <div class="u-space c-card"></div>
+        <h2 id="color-cta-sec" class="c-title c-card">About us</h2>
+        <div class="l-about c-card">
+          <h3 class="c-card-title l-content">Welcome to Slow Morning!</h3>
+
+          <p class="c-card-text">
+            At Slow Morning Living, we embrace simplicity, mindfulness, and intentional living. Our blog is
+            a sanctuary where we share practical tips, inspiring stories, and thought-provoking articles
+            about slow mornings and mindful practices.
+
+            Join our community as we explore mindfulness exercises, self-care rituals, healthy recipes, and
+            sustainable living. Together, let's cultivate a sense of calm, balance, and joy in our daily
+            lives.
+
+            Discover the power of slow mornings and intentional living at Slow Morning Living!
+
+            Feel free to further customize and refine the text to suit your preferences and brand messaging.
+          </p>
+        </div>
+        <div class="c-card u-space"></div>
+      </section>
       <section role="blog-list">
         <div id="blog-list-error-container"></div>
         <div class="c-card">
@@ -79,49 +101,46 @@
                 <div class="skeleton skeleton-text"></div>
                 <div class="skeleton skeleton-text"></div>
               </div>
-              <div class="c-card-text">
+              <div class="c-card-text c-card">
                 <div class="skeleton skeleton-text"></div>
               </div>
             </div>
             <button id="see-more-button" onclick="fetchBlogData()" class="b-cta">See more posts</button>
           </div>
         </div>
+        <div class="u-space c-card"></div>
         <div id="carousel-blog-list-container" class="is-hidden"></div>
       </section>
 
-      <section role="about">
-        <div id="js-about-container">
-          <div class="skeleton-loader"></div>
-        </div>
-      </section>
 
 
       <section role="contact form" class="contact-form-index">
-        <h2 class="c-title c-card">Contact Us</h2>
+        <div class="u-space c-card"></div>
+        <h2 id="color-cta-primary" class="c-title c-card">Contact Us</h2>
 
         <form id="contact-form" class="c-form" enctype="multipart/form-data"
           action="https://slow-mo.flywheelsites.com/wp-json/contact-form-7/v1/contact-forms/142/feedback">
-          <div id="color-dark">
+          <div>
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required autocomplete="on">
             <span id="name-error" class="error-message"></span>
           </div>
-          <div id="color-dark">
+          <div>
             <label for="email">Email address:</label>
             <input type="email" id="email" name="email" required autocomplete="on">
             <span id="email-error" class="error-message"></span>
           </div>
-          <div id="color-dark">
+          <div>
             <label for="subject">Subject:</label>
             <input type="text" id="subject" name="subject" required autocomplete="on">
             <span id="subject-error" class="error-message"></span>
           </div>
-          <div id="color-dark">
+          <div>
             <label for="message">Message content:</label>
             <textarea id="message" name="message" required></textarea>
             <span id="message-error" class="error-message"></span>
           </div>
-          <div id="color-dark">
+          <div>
             <button data-open-modal id="form-cta" type="submit" onclick="submitForm()" class="b-cta">Submit</button>
 
             <dialog data-modal>
@@ -130,6 +149,7 @@
             </dialog>
           </div>
         </form>
+        <div class="u-space c-card"></div>
       </section>
     </article>
 
@@ -160,18 +180,17 @@
           </ul>
         </nav>
       </div>
-      <div class="logo-wrap">
+      <div id="color-dark" class="logo-wrap">
         <div class="nav-logo">
           <a href="/index.html">
-            <h3>slow - mo</h3>
+            <h3 id="color-dark">slow - mo</h3>
           </a>
         </div>
       </div>
     </div>
   </footer>
-
+  <div class="u-space"></div>
   <small>Created with ❤️ by CNB</small>
-
   <script type="module" defer src="/src/js/loader.js"></script>
   <script type="module" defer src="/src/js/app.js"></script>
   <script type="module" defer src="/src/js/l-bloglist.js"></script>

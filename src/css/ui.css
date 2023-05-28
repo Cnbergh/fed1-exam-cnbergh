@@ -345,16 +345,21 @@ h3 {
 
 .footer-nav {
   width: 100%;
-  background-color: var(--color-primary-background);
+  background-color: var(--color-secondary-background);
   border: var(--bw-regular) solid var(--color-primary-border);
   display: flex;
   flex-direction: row;
 }
 
 .footer-menu {
-  background-color: var(--color-primary-background);
+  color: var(--color-primary-background);
+  background-color: var(--color-secondary-background);
   width: 30%;
   border: var(--bw-regular) solid var(--color-primary-border);
+}
+
+.footer-menu a {
+  color: var(--color-primary-background);
 }
 
 .nav-logo {

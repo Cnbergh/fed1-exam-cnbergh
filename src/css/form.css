@@ -96,5 +96,12 @@ dialog::backdrop {
 #color-dark {
   color: var(--color-beige);
   background-color: var(--color-secondary-background);
-  border-color: var(--color-beige);
+}
+
+#color-cta-primary {
+  background-color: var(--color-pink);
+}
+
+#color-cta-sec {
+  background-color: var(--color-light-blue);
 }

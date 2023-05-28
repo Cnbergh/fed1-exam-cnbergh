@@ -46,52 +46,62 @@
         <article role="main-content">
 
             <section role="about">
-                <div class="u-space"></div>
-                <div id="c-card c-text_wrapper l-content c-card-text">
-                    <div class="l-about c-card">
-                        <h2 class="c-title">About us</h2>
-                        <h3 class="c-card-title l-content">Welcome to our Slow Morning Living Blog!</h3>
+                <div class="u-space c-card"></div>
+                <h2 id="color-cta-sec" class="c-title c-card">About us</h2>
+                <div class="l-about c-card">
+                    <h3 class="c-card-title l-content">Welcome to Slow Morning!</h3>
 
-                        <p class="c-card-text">
-                            At Slow Morning Living, we believe in embracing the beauty of simplicity, mindfulness, and
-                            intentionality in our daily lives. We are a community of like-minded individuals seeking to
-                            cultivate a sense of calm, balance, and joy amidst the fast-paced world we live in.
+                    <p class="c-card-text">
+                        At Slow Morning Living, we embrace simplicity, mindfulness, and intentional living. Our blog is
+                        a sanctuary where we share practical tips, inspiring stories, and thought-provoking articles
+                        about slow mornings and mindful practices.
 
-                            Our blog serves as a sanctuary where we share our thoughts, experiences, and insights on
-                            slow
-                            mornings, mindful practices, and intentional living. We curate inspiring articles, practical
-                            tips, and thought-provoking stories to help you create meaningful rituals that set the tone
-                            for
-                            your entire day.
+                        Join our community as we explore mindfulness exercises, self-care rituals, healthy recipes, and
+                        sustainable living. Together, let's cultivate a sense of calm, balance, and joy in our daily
+                        lives.
 
-                            Through our blog, we aim to bring a sense of peace, mindfulness, and purpose into your
-                            mornings.
-                            We explore various aspects of slow living, such as mindfulness exercises, meditation
-                            techniques,
-                            self-care rituals, healthy recipes, and sustainable living practices. Our goal is to provide
-                            you
-                            with inspiration and guidance to live a more intentional, fulfilling, and balanced life.
+                        Discover the power of slow mornings and intentional living at Slow Morning Living!
 
-                            As passionate bloggers, we understand the importance of connecting with our readers and
-                            building
-                            a community. We value your insights, experiences, and feedback. Together, we can embark on
-                            this
-                            journey of personal growth, self-discovery, and living in harmony with ourselves and the
-                            world
-                            around us.
-
-                            To ensure a seamless experience, we have implemented a user-friendly website powered by a
-                            Headless CMS. This allows us to easily manage and update our content while ensuring that it
-                            remains accessible and customizable for you, our valued readers.
-
-                            We invite you to explore our blog, engage with our content, and join our community.
-                            Together,
-                            let's embrace the power of slow mornings, mindful practices, and intentional living.
-
-                            Thank you for being a part of the Slow Morning Living community!</p>
-                    </div>
+                        Feel free to further customize and refine the text to suit your preferences and brand messaging.
+                    </p>
                 </div>
-                <div class="u-space"></div>
+                <div class="c-card u-space"></div>
+            </section>
+            <section role="contact form">
+                <h2 id="color-cta-primary" class="c-title c-card">Contact Us</h2>
+
+                <form id="contact-form" class="c-form">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required autocomplete="on">
+                        <span id="name-error" class="error-message"></span>
+                    </div>
+                    <div>
+                        <label for="email">Email address:</label>
+                        <input type="email" id="email" name="email" required autocomplete="on">
+                        <span id="email-error" class="error-message"></span>
+                    </div>
+                    <div>
+                        <label for="subject">Subject:</label>
+                        <input type="text" id="subject" name="subject" required autocomplete="on">
+                        <span id="subject-error" class="error-message"></span>
+                    </div>
+                    <div>
+                        <label for="message">Message content:</label>
+                        <textarea id="message" name="message" required></textarea>
+                        <span id="message-error" class="error-message"></span>
+                    </div>
+                    <div>
+                        <button data-open-modal id="form-cta" type="submit" onclick="submitForm()"
+                            class="b-cta">Submit</button>
+
+                        <dialog data-modal>
+                            <div>Thank you!</div>
+                            <button class="b-cta" data-close-modal>close</button>
+                        </dialog>
+                    </div>
+                </form>
+                <div class="u-space c-card"></div>
             </section>
 
         </article>

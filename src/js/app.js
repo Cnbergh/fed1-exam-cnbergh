@@ -48,8 +48,14 @@ async function fetchBlogData() {
       console.log("error 400", postsData.data);
 
       const errorMessage = `<div class="error-message">Noe gikk galt, feilmelding kode: ${postsData.data?.status}</div>`;
-      blogListContainer.innerHTML = errorMessage;
-      latestPostContainer.innerHTML = errorMessage;
+
+      if (blogListContainer) {
+        blogListContainer.innerHTML = errorMessage;
+      }
+
+      if (latestPostContainer) {
+        latestPostContainer.innerHTML = errorMessage;
+      }
     }
 
     if (postsData.length > 0 && postsData.data?.status !== 400) {
@@ -76,8 +82,8 @@ async function fetchBlogData() {
 
     console.log("posts", posts);
   } catch (error) {
-    isLoading = false;
-    blogListContainer.innerHTML = `<div class="error-message">Noe gikk galt, feilmelding: ${error}</div>`;
+    if (blogListContainer)
+      blogListContainer.innerHTML = `<div class="error-message">Noe gikk galt, feilmelding: ${error}</div>`;
 
     console.log("Error fetching posts:", error);
   }
@@ -132,10 +138,8 @@ function renderPosts() {
 }
 
 function renderLatestPost() {
-  latestPostContainer.innerHTML = `<div class="skeleton-loader"></div>`;
-
   if (latestPostContainer) {
-    latestPostContainer.innerHTML = "";
+    latestPostContainer.innerHTML = `<div class="skeleton-loader"></div>`;
     if (posts.length) {
       const latestPost = posts[0];
       latestPostContainer.innerHTML += `<div class="l-container c-card">

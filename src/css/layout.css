@@ -105,7 +105,7 @@ body {
 }
 
 .l-about {
-  max-width: 600px;
-  margin: 0 auto;
+  width: 100%;
   padding-bottom: 5%;
+  padding-right: 20%;
 }
