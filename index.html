@@ -45,7 +45,7 @@
   <main class="l-main">
     <article role="main-content">
       <section role="latest-post">
-        <div id="latest-post-container" class="error-message">
+        <div id="latest-post-container">
           <div class="l-container c-card">
             <div class="c-title l-latest-post skeleton">...Loading</div>
             <img class="hero-image skeleton" src="/public/placeholder.jpg" loading="lazy"
@@ -69,7 +69,7 @@
       <section role="blog-list">
         <div class="c-card">
           <div class="accordion">
-            <div id="blog-list-container">
+            <div id="blog-list-container" >
               <div class="c-title skeleton">
                 <div class="skeleton skeleton-text"></div>
               </div>
@@ -85,7 +85,7 @@
             <button id="see-more-button" onclick="fetchBlogData()" class="b-cta">See more posts</button>
           </div>
         </div>
-        <div id="carousel-blog-list-container"></div>
+        <div id="carousel-blog-list-container" class="is-hidden"></div>
       </section>
 
       <section role="about">

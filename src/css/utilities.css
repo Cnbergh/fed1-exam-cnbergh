@@ -4,6 +4,11 @@
  * @tutorial https://web.dev/learn/css/flexbox/
  * @example https://fed-vocational-astro-course.vercel.app/en/html-css/module-3/media-queries
  */
+
+.error-message {
+  color: var(--color-red);
+}
+
 .is-hidden {
   display: none;
   height: 0;
@@ -46,7 +51,6 @@
     max-width: 480px;
     min-width: 280px;
   }
-
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
@@ -54,12 +58,17 @@
     max-width: 768px;
     min-width: 481px;
   }
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   body {
     max-width: 1024px;
     min-width: 768px;
+  }
+
+  .is-hidden {
+    display: contents;
   }
 
   .l-container {
@@ -84,6 +93,9 @@
     min-width: 1025px;
   }
 
+  .is-hidden {
+    display: contents;
+  }
 
   .l-container {
     width: 100%;

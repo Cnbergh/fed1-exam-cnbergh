@@ -133,6 +133,7 @@
 
 .c-card {
   width: 100%;
+  height: auto;
 
   border: var(--bw-regular) solid var(--color-primary-border);
 }
@@ -242,13 +243,16 @@ h3 {
 
 
 .b-cta {
-  min-width: 200px;
+  min-width: 150px;
   height: 60px;
   background: var(--color-secondary-background);
-  border: 0;
+  border: var(--bw-regular) solid var(--color-primary-border);
+
+  cursor: pointer;
 
   width: 100%;
   font: inherit;
+  text-transform: uppercase;
   color: var(--color-light-pink);
 }
 

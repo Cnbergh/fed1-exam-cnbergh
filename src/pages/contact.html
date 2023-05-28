@@ -43,13 +43,37 @@
     </header>
 
     <main class="l-main">
-        <h2>My awesome form</h2>
+        <article>
+            <section role="contact form">
+                <h2 class="c-title c-card">Contact Us</h2>
 
-        <section role="contact">
-            <div id="js-contact-container">
-                <div class="skeleton-loader"></div>
-            </div>
-        </section>
+                <form id="contact-form" class="c-form">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                        <span id="name-error" class="error-message"></span>
+                    </div>
+                    <div>
+                        <label for="email">Email address:</label>
+                        <input type="email" id="email" name="email" required>
+                        <span id="email-error" class="error-message"></span>
+                    </div>
+                    <div>
+                        <label for="subject">Subject:</label>
+                        <input type="text" id="subject" name="subject" required>
+                        <span id="subject-error" class="error-message"></span>
+                    </div>
+                    <div>
+                        <label for="message">Message content:</label>
+                        <textarea id="message" name="message" required></textarea>
+                        <span id="message-error" class="error-message"></span>
+                    </div>
+                    <div>
+                        <button type="submit" onclick="submitForm()" class="b-cta">Submit</button>
+                    </div>
+                </form>
+            </section>
+        </article>
 
 
     </main>
@@ -62,7 +86,6 @@
 
     <small>Created with ❤️ by CNB</small>
     <script type="module" defer src="/src/js/loader.js"></script>
-    <script type="module" defer src="/src/js/c-contact.js"></script>
     <script type="module" defer src="/src/js/contact.js"></script>
     <script type="module" defer src="/src/js/responsiv.js"></script>
 </body>

@@ -29,7 +29,7 @@ Helper functions
 
 // TODO: Create a function to create a DOM element
 
-const formEl = document.querySelector("#js-form");
+/* const formEl = document.querySelector("#js-form");
 const nameEl = document.querySelector("#js-name");
 const emailEl = document.querySelector("#js-email");
 const passwordEl = document.querySelector("#js-password");
@@ -78,83 +78,71 @@ formEl.addEventListener("submit", (event) => {
 
   submitForm(name, email, password);
 });
+ */
 
-const validateName = () => validateField(event.target, minLengthRegex);
+const form = document.getElementById("contact-form");
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const subjectInput = document.getElementById("subject");
+const messageInput = document.getElementById("message");
 
-nameEl.addEventListener("input", validateName);
-nameEl.addEventListener("blur", validateName);
+form.addEventListener("submit", validateForm);
 
-const validateEmail = () => validateField(event.target, emailRegex);
+function validateForm(event) {
+  event.preventDefault();
 
-emailEl.addEventListener("input", validateEmail);
-emailEl.addEventListener("blur", validateEmail);
+  const name = nameInput.value;
+  const email = emailInput.value;
+  const subject = subjectInput.value;
+  const message = messageInput.value;
 
-const validatePassword = () => validateField(event.target, passwordRegex);
+  const isNameValid = validateField(
+    nameInput,
+    /^[a-zA-Z\s]{5,}$/,
+    "Name must be at least 5 characters long"
+  );
+  const isEmailValid = validateField(
+    emailInput,
+    /^\S+@\S+\.\S+$/,
+    "Invalid email address"
+  );
+  const isSubjectValid = validateField(
+    subjectInput,
+    /^.{15,}$/,
+    "Subject must be at least 15 characters long"
+  );
+  const isMessageValid = validateField(
+    messageInput,
+    /^.{25,}$/,
+    "Message must be at least 25 characters long"
+  );
 
-passwordEl.addEventListener("input", validatePassword);
-passwordEl.addEventListener("blur", validatePassword);
+  if (isNameValid && isEmailValid && isSubjectValid && isMessageValid) {
+    // Form submission logic
+    submitForm(name, email, subject, message);
+    form.reset();
+  }
+}
 
 function validateField(field, regex, errorMessage) {
   const value = field.value.trim();
-  const validationMessageEl = field.parentNode.querySelector("[data-id]");
+  const errorElement = document.getElementById(`${field.id}-error`);
 
-  if (regex.test(value) && value !== "") {
-    field.classList.add("is-success");
-    field.classList.remove("is-error");
-
-    displayError(validationMessageEl);
+  if (regex.test(value)) {
+    field.classList.remove("error");
+    errorElement.textContent = "";
     return true;
   } else {
-    field.classList.add("is-error");
-    field.classList.remove("is-success");
-
-    displayError(
-      validationMessageEl,
-      errorMessage || "Please enter a valid value"
-    );
+    field.classList.add("error");
+    errorElement.textContent = errorMessage;
     return false;
   }
 }
 
-function displayError(container, error = "") {
-  container.innerHTML = error;
-}
-
-function resetForm() {
-  formEl.reset();
-
-  nameEl.classList.remove("is-success");
-  emailEl.classList.remove("is-success");
-  passwordEl.classList.remove("is-success");
-
-  document.querySelectorAll("[data-id]").forEach((el) => {
-    el.innerHTML = "";
-  });
-}
-
-// SUbmit the form data to the server
-async function submitForm(name, email, password) {
-  try {
-    const response = await fetch("/api/form", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name,
-        email,
-        password,
-      }),
-    });
-
-    alert("Form submitted");
-    const data = await response.json();
-    console.log(data);
-  } catch (error) {
-    console.log(error);
-
-    displayError(messageContainerEl, error);
-  } finally {
-    resetForm();
-  }
+function submitForm(name, email, subject, message) {
+  // Your form submission logic here
+  console.log("Name:", name);
+  console.log("Email:", email);
+  console.log("Subject:", subject);
+  console.log("Message:", message);
 }

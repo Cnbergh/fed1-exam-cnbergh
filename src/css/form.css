@@ -6,10 +6,35 @@
 
 .c-form {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: var(--spacing-1);
-  padding: var(--spacing-1);
-  background-color: var(--color-white);
-  border-radius: var(--radius-1);
-  box-shadow: var(--shadow-1);
+  grid-template-columns: repeat(var(--column-count-1), 1fr);
+  border: var(--bw-regular) solid var(--color-primary-border);
+}
+
+.c-form>div {
+  display: flex;
+  border: var(--bw-regular) solid var(--color-primary-border);
+}
+
+.c-form label {
+  display: flex;
+  align-items: flex-start;
+  text-align: center;
+  padding: 1%;
+
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: none;
+}
+
+.c-form input {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  text-align: left;
+
+  padding: 1%;
+  margin: 1% auto;
+
+  border: none;
+  background-color: transparent;
 }
