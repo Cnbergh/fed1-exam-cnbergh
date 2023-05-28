@@ -67,6 +67,7 @@ body {
   padding: var(--size-fluid-2);
   margin: 0 auto;
   width: 95%;
+  border: var(--bw-regular) solid var(--color-primary-border);
 }
 
 
@@ -79,6 +80,7 @@ body {
   padding: var(--size-fluid-1);
   margin: 0 auto;
   width: 95%;
+  border: var(--bw-regular) solid var(--color-primary-border);
 }
 
 
@@ -100,4 +102,10 @@ body {
   position: absolute;
 
   z-index: 4;
+}
+
+.l-about {
+  max-width: 600px;
+  margin: 0 auto;
+  padding-bottom: 5%;
 }

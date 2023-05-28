@@ -67,6 +67,7 @@
       </section>
 
       <section role="blog-list">
+        <div id="blog-list-error-container"></div>
         <div class="c-card">
           <div class="accordion">
             <div id="blog-list-container">
@@ -94,30 +95,79 @@
         </div>
       </section>
 
-      <section role="contact">
-        <div id="js-contact-container">
-          <div class="skeleton-loader"></div>
-        </div>
+
+      <section role="contact form" class="contact-form-index">
+        <h2 class="c-title c-card">Contact Us</h2>
+
+        <form id="contact-form" class="c-form" enctype="multipart/form-data"
+          action="https://slow-mo.flywheelsites.com/wp-json/contact-form-7/v1/contact-forms/142/feedback">
+          <div id="color-dark">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required autocomplete="on">
+            <span id="name-error" class="error-message"></span>
+          </div>
+          <div id="color-dark">
+            <label for="email">Email address:</label>
+            <input type="email" id="email" name="email" required autocomplete="on">
+            <span id="email-error" class="error-message"></span>
+          </div>
+          <div id="color-dark">
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required autocomplete="on">
+            <span id="subject-error" class="error-message"></span>
+          </div>
+          <div id="color-dark">
+            <label for="message">Message content:</label>
+            <textarea id="message" name="message" required></textarea>
+            <span id="message-error" class="error-message"></span>
+          </div>
+          <div id="color-dark">
+            <button data-open-modal id="form-cta" type="submit" onclick="submitForm()" class="b-cta">Submit</button>
+
+            <dialog data-modal>
+              <div>Thank you!</div>
+              <button class="b-cta" data-close-modal>close</button>
+            </dialog>
+          </div>
+        </form>
       </section>
     </article>
 
     <dialog menu-modal class="Menu-model">
       <ul>
-          <div>
-              <h2>Menu</h2>
-          </div>
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/src/pages/about.html">About</a></li>
-          <li><a href="/src/pages/blog.html">Blog</a></li>
-          <li><a href="/src/pages/contact.html">Contact</a></li>
+        <div>
+          <h2>Menu</h2>
+        </div>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/src/pages/about.html">About</a></li>
+        <li><a href="/src/pages/blog.html">Blog</a></li>
+        <li><a href="/src/pages/contact.html">Contact</a></li>
       </ul>
       <button menu-close-modal class="b-cta">Close menu</button>
-  </dialog>
+    </dialog>
 
   </main>
 
   <footer class="l-footer">
-    <nav></nav>
+    <div class="footer-nav">
+      <div class="footer-menu">
+        <nav>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/src/pages/about.html">About</a></li>
+            <li><a href="/src/pages/blog.html">Blog</a></li>
+            <li><a href="/src/pages/contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="logo-wrap">
+        <div class="nav-logo">
+          <a href="/index.html">
+            <h3>slow - mo</h3>
+          </a>
+        </div>
+      </div>
+    </div>
   </footer>
 
   <small>Created with ❤️ by CNB</small>

@@ -3,14 +3,21 @@ const latestPostContainer = document.getElementById("latest-post-container");
 const blogListCarouselContainer = document.getElementById(
   "carousel-blog-list-container"
 );
+const blogListErrorContainer = document.getElementById(
+  "blog-list-error-container"
+);
 
 const apiUrl =
   "https://slow-mo.flywheelsites.com/wp-json/wp/v2/posts?orderby=date";
 const mediaUrl = "https://slow-mo.flywheelsites.com/wp-json/wp/v2/media";
 
+const contactApiUrl =
+  "https://slow-mo.flywheelsites.com/wp-json/contact-form-7/v1/contact-forms/142/feedback";
+
 let posts = [];
 let mediaData = [];
 let loadedPosts = 10;
+let errorBlogList = null;
 
 async function getMedia() {
   const allMediaRes = await fetch(mediaUrl);
@@ -28,17 +35,25 @@ async function getMedia() {
 getMedia();
 
 async function fetchBlogData() {
-  try {
-    if (!posts) listContainer.innerHTML = `<div class="skeleton-loader"></div>`;
+  blogListContainer.innerHTML = `<div class="skeleton-loader"></div>`;
 
+  try {
     const response = await fetch(apiUrl);
     const postsData = (await response.json()) || [];
 
     console.log("resultData", postsData);
     console.log("mediaData", mediaData);
 
-    posts = posts.concat(
-      postsData.map((post) => {
+    if (postsData.data?.status !== 200) {
+      console.log("error 400", postsData.data);
+
+      const errorMessage = `<div class="error-message">Noe gikk galt, feilmelding kode: ${postsData.data?.status}</div>`;
+      blogListContainer.innerHTML = errorMessage;
+      latestPostContainer.innerHTML = errorMessage;
+    }
+
+    if (postsData.length > 0 && postsData.data?.status !== 400) {
+      posts = postsData?.map((post) => {
         const media =
           mediaData.find((item) => item.id === post.featured_media) || null;
 
@@ -49,9 +64,9 @@ async function fetchBlogData() {
           imageData: media,
           content: post.content.rendered,
         };
-      })
-    );
-    localStorage.setItem("fetchedPosts", JSON.stringify(posts));
+      });
+      localStorage.setItem("fetchedPosts", JSON.stringify(posts));
+    }
 
     if (posts.length > 0) {
       renderPosts();
@@ -61,6 +76,9 @@ async function fetchBlogData() {
 
     console.log("posts", posts);
   } catch (error) {
+    isLoading = false;
+    blogListContainer.innerHTML = `<div class="error-message">Noe gikk galt, feilmelding: ${error}</div>`;
+
     console.log("Error fetching posts:", error);
   }
   const seeMoreButton = document.getElementById("see-more-button");
@@ -114,6 +132,8 @@ function renderPosts() {
 }
 
 function renderLatestPost() {
+  latestPostContainer.innerHTML = `<div class="skeleton-loader"></div>`;
+
   if (latestPostContainer) {
     latestPostContainer.innerHTML = "";
     if (posts.length) {

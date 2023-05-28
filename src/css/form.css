@@ -46,7 +46,7 @@
 
   border-radius: 10px;
   border: 2px solid transparent;
-  background-color: transparent;
+  background-color: var(--color-primary-background);
   outline: none;
   accent-color: var(--color-yellow);
 
@@ -91,4 +91,10 @@ dialog .b-cta:hover {
 
 dialog::backdrop {
   background-color: var(--color-red);
+}
+
+#color-dark {
+  color: var(--color-beige);
+  background-color: var(--color-secondary-background);
+  border-color: var(--color-beige);
 }

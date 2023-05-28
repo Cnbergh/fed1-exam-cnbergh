@@ -46,6 +46,7 @@ Helper functions
  */
 
 const blogDetailContainer = document.querySelector(".blog-specific");
+const blogDetailErrorContainer = document.getElementById("blog-specific-error");
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 
@@ -62,6 +63,7 @@ console.log(mediaUrl);
 console.log(getPostApiUrl);
 let post = [];
 let mediaData = [];
+let error = null;
 
 async function getMediaSpecific() {
   const MediaRes = await fetch(mediaUrl);
@@ -100,12 +102,17 @@ async function fetchBlogSpecificData() {
 
     createHtml(post);
   } catch (error) {
+    error = `<div class="error-message">Noe gikk galt, feilmelding: ${error}</div>`;
     console.log("Error fetching blog post:", error);
+
+    blogDetailErrorContainer.innerHTML = error;
   }
 }
 
 function createHtml(post) {
   if (post) {
+    document.title = `${post.title} | Slow - Mo`;
+
     blogDetailContainer.innerHTML = `
     <h2>${post.title}</h2>
     <img src="${post?.imageData?.source_url}" />

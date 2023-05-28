@@ -341,3 +341,37 @@ h3 {
 .carousel-item {
   flex: 0 0 100%;
 }
+
+
+.footer-nav {
+  width: 100%;
+  background-color: var(--color-primary-background);
+  border: var(--bw-regular) solid var(--color-primary-border);
+  display: flex;
+  flex-direction: row;
+}
+
+.footer-menu {
+  background-color: var(--color-primary-background);
+  width: 30%;
+  border: var(--bw-regular) solid var(--color-primary-border);
+}
+
+.nav-logo {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.logo-wrap {
+  background-color: var(--color-primary-cta);
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border: var(--bw-regular) solid var(--color-primary-border);
+}

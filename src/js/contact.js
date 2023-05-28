@@ -89,11 +89,40 @@ function validateField(field, regex, errorMessage) {
   }
 }
 
+async function sendFormData(name, email, subject, message) {
+  const formData = {
+    "your-name": name,
+    "your-email": email,
+    "your-subject": subject,
+    "your-message": message,
+  };
+
+  try {
+    const sendForm = await fetch(
+      `https://slow-mo.flywheelsites.com/wp-json/contact-form-7/v1/contact-forms/142/feedback`,
+      { formData },
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    console.log("sendForm", sendForm);
+  } catch (error) {
+    console.log("Error fetching posts:", error);
+  }
+}
+
 function submitForm(name, email, subject, message) {
   console.log("Name:", name);
   console.log("Email:", email);
   console.log("Subject:", subject);
   console.log("Message:", message);
+
+  sendFormData(name, email, subject, message);
 }
 
 const openButton = document.querySelector("[data-open-modal]");

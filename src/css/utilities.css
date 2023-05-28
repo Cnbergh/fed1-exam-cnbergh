@@ -219,3 +219,8 @@
     flex: 0 0 33.33%;
   }
 }
+
+.u-space {
+  display: block;
+  height: 60px;
+}
