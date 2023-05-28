@@ -224,5 +224,8 @@ function renderCarousel() {
 
     previousOption.addEventListener("click", previousSlide);
     nextOption.addEventListener("click", nextSlide);
+
+    // Start with the last slide
+    showSlide(carouselItems.length - 1);
   }
 }
