@@ -124,7 +124,7 @@ function renderPosts() {
         <div class="post-data">
         <img class="post-img" src="${
           post.imageData?.source_url
-        }" alt="Post Image" />
+        }" alt="Post Image" loading="lazy" />
         ${post.content}
             <button onclick="window.location.href='/src/pages/blog-specific.html?id=${
               post.id
