@@ -70,6 +70,7 @@ function validateForm(event) {
     // Form submission logic
     submitForm(name, email, subject, message);
     form.reset();
+    modal.showModal();
   }
 }
 
@@ -89,9 +90,19 @@ function validateField(field, regex, errorMessage) {
 }
 
 function submitForm(name, email, subject, message) {
-  // Your form submission logic here
   console.log("Name:", name);
   console.log("Email:", email);
   console.log("Subject:", subject);
   console.log("Message:", message);
 }
+
+const openButton = document.querySelector("[data-open-modal]");
+const closeButton = document.querySelector("[data-close-modal]");
+const modal = document.querySelector("[data-modal]");
+
+openButton.addEventListener("submit", () => {
+  modal.showModal();
+});
+closeButton.addEventListener("click", () => {
+  modal.close();
+});

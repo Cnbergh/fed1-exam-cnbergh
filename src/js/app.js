@@ -97,8 +97,11 @@ function renderPosts() {
           }-title" aria-hidden="${i === 0 ? false : true}" id="panel${
           i + 1
         }-content">
-            <div>
-            ${post.content}
+        <div class="post-data">
+        <img class="post-img" src="${
+          post.imageData?.source_url
+        }" alt="Post Image" />
+        ${post.content}
             <button onclick="window.location.href='/src/pages/blog-specific.html?id=${
               post.id
             }&media=${post.imageData?.id}'" class="b-cta">See more</button>

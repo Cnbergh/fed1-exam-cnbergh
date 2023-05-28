@@ -24,6 +24,12 @@ export function createDesktopNav() {
       const link = document.createElement("a");
       link.href = item.link;
 
+      if (item.role === "menu") {
+        link.addEventListener("click", () => {
+          MenuModal.showModal();
+        });
+      }
+
       const heading = document.createElement("h3");
       heading.textContent = item.text;
 
@@ -55,6 +61,12 @@ export function createMobileNav() {
 
       const link = document.createElement("a");
       link.href = "#";
+
+      if (item.role === "hamburger-menu") {
+        link.addEventListener("click", () => {
+          MenuModal.showModal();
+        });
+      }
 
       if (item.role === "hamburger-menu") {
         const hamburgerBars = document.createElement("div");
@@ -103,6 +115,13 @@ export function removeDesktopNav() {
     desktopNav.remove();
   }
 }
+
+const MenuModal = document.querySelector("[menu-modal]");
+const closeMenu = document.querySelector("[menu-close-modal]");
+
+closeMenu.addEventListener("click", () => {
+  MenuModal.close();
+});
 
 removeMobileNav();
 removeDesktopNav();

@@ -7,34 +7,88 @@
 .c-form {
   display: grid;
   grid-template-columns: repeat(var(--column-count-1), 1fr);
+  grid-template-rows: 4;
   border: var(--bw-regular) solid var(--color-primary-border);
 }
 
 .c-form>div {
   display: flex;
+  flex-direction: column;
   border: var(--bw-regular) solid var(--color-primary-border);
 }
 
 .c-form label {
+  width: 100%;
   display: flex;
   align-items: flex-start;
   text-align: center;
   padding: 1%;
+  margin-left: 1%;
 
   white-space: nowrap;
   overflow: hidden;
   word-wrap: none;
 }
 
-.c-form input {
-  width: 100%;
+.c-form textarea {
+  min-height: 120px;
+}
+
+.c-form input,
+.c-form textarea {
+  font: inherit;
+  width: 90%;
   display: flex;
   align-items: flex-end;
-  text-align: left;
 
-  padding: 1%;
+  padding: 1em;
   margin: 1% auto;
 
-  border: none;
+  border-radius: 10px;
+  border: 2px solid transparent;
   background-color: transparent;
+  outline: none;
+  accent-color: var(--color-yellow);
+
+  transition: all 0.2s;
+}
+
+.c-form textarea:hover,
+.c-form input:hover {
+  cursor: pointer;
+  background-color: var(--color-light-pink);
+}
+
+.c-form textarea:focus,
+.c-form input:focus {
+  cursor: text;
+  border-color: var(--color-yellow);
+  background-color: var(--color-light-pink);
+
+}
+
+#form-cta:hover {
+  color: var(--color-primary-border);
+  background-color: var(--color-light-blue);
+}
+
+dialog {
+  font: inherit;
+  text-align: center;
+  color: var(--color-red);
+  background-color: var(--color-light-pink);
+}
+
+dialog .b-cta {
+  color: var(--color-red);
+  background-color: var(--color-light-pink);
+  border-color: var(--color-red);
+}
+
+dialog .b-cta:hover {
+  background-color: var(--color-light-blue);
+}
+
+dialog::backdrop {
+  background-color: var(--color-red);
 }

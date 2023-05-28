@@ -50,17 +50,17 @@
                 <form id="contact-form" class="c-form">
                     <div>
                         <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" required autocomplete="on">
                         <span id="name-error" class="error-message"></span>
                     </div>
                     <div>
                         <label for="email">Email address:</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" required autocomplete="on">
                         <span id="email-error" class="error-message"></span>
                     </div>
                     <div>
                         <label for="subject">Subject:</label>
-                        <input type="text" id="subject" name="subject" required>
+                        <input type="text" id="subject" name="subject" required autocomplete="on">
                         <span id="subject-error" class="error-message"></span>
                     </div>
                     <div>
@@ -69,13 +69,30 @@
                         <span id="message-error" class="error-message"></span>
                     </div>
                     <div>
-                        <button type="submit" onclick="submitForm()" class="b-cta">Submit</button>
+                        <button data-open-modal id="form-cta" type="submit" onclick="submitForm()"
+                            class="b-cta">Submit</button>
+
+                        <dialog data-modal>
+                            <div>Thank you!</div>
+                            <button class="b-cta" data-close-modal>close</button>
+                        </dialog>
                     </div>
                 </form>
             </section>
         </article>
 
-
+        <dialog menu-modal class="Menu-model">
+            <ul>
+                <div>
+                    <h2>Menu</h2>
+                </div>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/src/pages/about.html">About</a></li>
+                <li><a href="/src/pages/blog.html">Blog</a></li>
+                <li><a href="/src/pages/contact.html">Contact</a></li>
+            </ul>
+            <button menu-close-modal class="b-cta">Close menu</button>
+        </dialog>
     </main>
 
     <footer class="l-footer">
