@@ -29,57 +29,6 @@ Helper functions
 
 // TODO: Create a function to create a DOM element
 
-/* const formEl = document.querySelector("#js-form");
-const nameEl = document.querySelector("#js-name");
-const emailEl = document.querySelector("#js-email");
-const passwordEl = document.querySelector("#js-password");
-const messageContainerEl = document.querySelector("#js-message-container");
-
-// Minmum 2 characters, must be letters only
-const minLengthRegex = /^[a-zA-Z]{2,}/;
-
-// Email Validation as per RFC2822 standards.
-const emailRegex =
-  /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
-
-// - at least 8 characters
-// - must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number
-// - Can contain special characters
-const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
-
-formEl.addEventListener("submit", (event) => {
-  // Stop the form from reloading the page
-  event.preventDefault();
-
-  const name = nameEl.value;
-  const email = emailEl.value;
-  const password = passwordEl.value;
-
-  const isNameValid = validateField(nameEl, minLengthRegex);
-  const isEmailValid = validateField(emailEl, emailRegex);
-  const isPasswordValid = validateField(passwordEl, passwordRegex);
-
-  messageContainerEl.innerHTML = "";
-
-  if (!isNameValid) {
-    alert("Please enter a name");
-    return;
-  }
-
-  if (!isEmailValid) {
-    alert("Please check your email");
-    return;
-  }
-
-  if (!isPasswordValid) {
-    alert("Please enter a valid password");
-    return;
-  }
-
-  submitForm(name, email, password);
-});
- */
-
 const form = document.getElementById("contact-form");
 const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
