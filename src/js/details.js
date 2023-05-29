@@ -67,8 +67,10 @@ function createHtml(post) {
     document.title = `${post.title} | Slow - Mo`;
 
     blogDetailContainer.innerHTML = `
-    <h2>${post.title}</h2>
-    <img src="${post?.imageData?.source_url}" />
-    <div class="details-description">${post.content}</div>`;
+    <div class="l-container">
+    <h2 class="c-title">${post.title}</h2>
+    <img class="hero-image" src="${post?.imageData?.source_url}" loading="lazy"/>
+    <div class="details-description c-card-text">${post.content}</div> 
+    </div>`;
   }
 }
