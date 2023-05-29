@@ -8,8 +8,9 @@ const blogListErrorContainer = document.getElementById(
 );
 
 const apiUrl =
-  "https://slow-mo.flywheelsites.com/wp-json/wp/v2/posts?orderby=date";
-const mediaUrl = "https://slow-mo.flywheelsites.com/wp-json/wp/v2/media";
+  "https://slow-mo.flywheelsites.com/wp-json/wp/v2/posts?per_page=20";
+const mediaUrl =
+  "https://slow-mo.flywheelsites.com/wp-json/wp/v2/media?per_page=20";
 
 const contactApiUrl =
   "https://slow-mo.flywheelsites.com/wp-json/contact-form-7/v1/contact-forms/142/feedback";
