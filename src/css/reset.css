@@ -1,11 +1,11 @@
 /*!
  * Reset
- * makes browsers render all elements more consistently and in line with modern standards.
+ * Makes browsers render all elements more consistently and in line with modern standards.
  * @tutorial https://web.dev/learn/css/layout/
  * @example https://fed-vocational-astro-course.vercel.app/en/html-css/module-3/css-grids
  */
 
-:root {
+ :root {
   font-family: var(--ff-primary), var(--ff-secondary), Neue Montreal;
   line-height: 1.5;
   font-weight: var(--fw-regular);
@@ -27,7 +27,6 @@ html {
   font-size: 100%;
   vertical-align: baseline;
   background-color: var(--color-secondary-background);
-
   scroll-behavior: smooth;
 }
 
@@ -54,17 +53,18 @@ a {
 a:hover,
 a:hover > :first-child,
 a:focus > :first-child {
-  text-decoration:underline;
+  text-decoration: underline;
   text-decoration-color: var(--color-yellow);
   text-decoration-thickness: 3px;
 }
 
-/*Lage for forskjelige med eks a[class] eller a [href="#"]*/
-
-
 body {
   background-color: var(--color-primary-background);
+  border-left: 3px solid var(--color-primary-background);
+  border-right: 3px solid var(--color-primary-background);
+  margin: 0;
 }
+
 body::before,
 body::after {
   content: "";
@@ -74,54 +74,93 @@ body::after {
   right: 0;
   height: 3px;
 }
+
 body::before {
   top: 0;
 }
+
 body::after {
   bottom: 0;
 }
+
 body {
-  border-left: 3px solid var(--color-primary-background);
-  border-right: 3px solid var(--color-primary-background);
+  margin: 0 auto;
+  max-width: 1440px;
+  place-items: flex-start;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: minmax(62px, auto) 1fr auto;
+  grid-template-areas: "header" "main" "footer";
 }
 
-body,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+.l-header {
+  display: flex;
+  flex-direction: column;
+  grid-area: header;
+  width: 100%;
+  padding: var(--size-fluid-1);
+  margin: 0 auto;
+}
+
+.l-navbar {
+  display: flex;
+  flex-direction: column;
+  padding: var(--size-fluid-1);
+  margin: 3% auto 0;
+  width: 95%;
+}
+
+.l-navbar ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  list-style: none;
+  width: 100%;
+  padding: 0;
   margin: 0;
 }
 
-h1,
-h2,
-h3 {
-  text-transform: uppercase;
+.l-main {
+  display: flex;
+  flex-direction: column;
+  grid-area: main;
+  padding: var(--size-fluid-2);
+  margin: 0 auto;
+  width: 95%;
+  border: var(--bw-regular) solid var(--color-primary-border);
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+.l-footer {
+  display: flex;
+  flex-direction: column;
+  grid-area: footer;
+  padding: var(--size-fluid-1);
+  margin: 0 auto;
+  width: 95%;
+  border: var(--bw-regular) solid var(--color-primary-border);
 }
 
-input {
-  outline-offset: 1px;
+.l-content {
+  flex: 1 0 auto;
+  min-height: 80px;
 }
 
-:where(:not(:active):focus-visible) {
-  outline-offset: 1px;
+.l-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-/*NB! ???*/
-@media (--motionOK) {
-  :where(:focus-visible) {
-    transition: outline-offset 145ms var(--ease-2);
-  }
+.l-latest-post {
+  width: 93%;
+  grid-area: title;
+  position: absolute;
+  z-index: 4;
+}
 
-  :where(:not(:active):focus-visible) {
-    transition-duration: 0.25s;
-  }
+.l-about {
+  width: 100%;
+  padding-bottom: 5%;
+  padding-right: 20%;
 }

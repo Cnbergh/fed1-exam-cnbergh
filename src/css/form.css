@@ -1,9 +1,3 @@
-/*!
- * Forms
- * form classes use the c- prefix to indicate they are components used in layout.
- * @example https://fed-vocational-astro-course.vercel.app/en/html-css/module-2/forms
- */
-
 .c-form {
   display: grid;
   grid-template-columns: repeat(var(--column-count-1), 1fr);
@@ -24,7 +18,6 @@
   text-align: center;
   padding: 1%;
   margin-left: 1%;
-
   white-space: nowrap;
   overflow: hidden;
   word-wrap: none;
@@ -40,16 +33,13 @@
   width: 90%;
   display: flex;
   align-items: flex-end;
-
   padding: 1em;
   margin: 1% auto;
-
   border-radius: 10px;
   border: 2px solid transparent;
   background-color: var(--color-primary-background);
   outline: none;
   accent-color: var(--color-yellow);
-
   transition: all 0.2s;
 }
 
@@ -64,7 +54,6 @@
   cursor: text;
   border-color: var(--color-yellow);
   background-color: var(--color-light-pink);
-
 }
 
 #form-cta:hover {

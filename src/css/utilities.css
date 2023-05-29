@@ -82,7 +82,17 @@
     flex: 0 0 100%;
   }
 
-
+  .accordion-trigger::before,
+  .accordion-trigger::after {
+    position: absolute;
+    right: 0;
+    content: "";
+    display: block;
+    width: 0;
+    height: 5px;
+    background: currentcolor;
+    transition: transform 600ms;
+  }
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
@@ -93,6 +103,18 @@
 
   .c-form textarea {
     min-height: 200px;
+  }
+
+  .accordion-trigger::before,
+  .accordion-trigger::after {
+    position: absolute;
+    right: 0;
+    content: "";
+    display: block;
+    width: 0;
+    height: 5px;
+    background: currentcolor;
+    transition: transform 600ms;
   }
 }
 
@@ -135,7 +157,7 @@
   }
 
   .hero-image {
-    height: 500px;
+    height: 600px;
     min-height: 300px;
   }
 
@@ -145,6 +167,17 @@
 
   .l-latest-post {
     position: relative;
+  }
+
+  .l-latest-post .hero-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+  }
+
+  .l-latest-post .c-title {
+    min-height: 100px;
   }
 
   .carousel-item {
@@ -191,7 +224,8 @@
   }
 
   .hero-image {
-    height: max-content;
+    height: 600px;
+    min-height: 300px;
   }
 
   .c-title {
@@ -217,10 +251,23 @@
     position: relative;
   }
 
+  .l-latest-post .hero-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+  }
+
+  .l-latest-post .c-title {
+    min-height: 100px;
+  }
+
   .carousel-item {
     flex: 0 0 33.33%;
   }
 }
+
+
 
 .u-space {
   display: block;

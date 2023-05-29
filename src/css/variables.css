@@ -4,7 +4,7 @@
  * @example https://fed-vocational-astro-course.vercel.app/en/html-css/module-4/css-variables
  */
 
-/*import of Fonts*/
+/* Import Fonts */
 @font-face {
   font-family: 'PP Gosha Sans Bold';
   src: url('/assets/fonts/PPGoshaSans-Bold.woff2') format('woff2'),
@@ -27,25 +27,16 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
-
-/*Site Variables*/
-
+/* Site Variables */
 :root {
-
-  /*Colors*/
-
+  /* Colors */
   --color-primary-background: var(--color-beige);
   --color-secondary-background: var(--color-black);
-
   --color-primary-font: var(--color-black);
-
   --color-primary-border: var(--color-black);
   --color-primary-shadow: var(--color-dark-black);
-
   --color-primary-cta: var(--color-pink);
   --color-secondary-cta: var(--color-light-blue);
-
-  /*-Color palette*/
   --color-dark-black: #1E1E1E;
   --color-black: #2C2B2B;
   --color-dark-blue: #0C4768;
@@ -56,35 +47,33 @@
   --color-light-pink: #FBEDF2;
   --color-beige: #FAEDE0;
 
-
-  /*Fonts*/
-
-  /*-Font family*/
+  /* Fonts */
   --ff-primary: 'PP Gosha Sans Bold', 'PP Gosha Sans Regular';
   --ff-secondary: "Bebas Neue";
 
-  /*-Font weight*/
+  /* Font weight */
   --fw-regular: 400;
   --fw-medium: 550;
   --fw-bold: 700;
 
-  /*-Font size*/
-  --fs-regular: 14px;
+  /* Font size */
+  --fs-regular: 0.875rem;
+  /* 14px */
+  --fs-s: 0.75rem;
+  /* 12px */
+  --fs-m: 1.125rem;
+  /* 18px */
+  --fs-l: 1.25rem;
+  /* 20px */
+  --fs-xl: 1.5rem;
+  /* 24px */
+  --fs-xxl: 2.5rem;
+  /* 40px */
 
-  --fs-s: 12px;
-  --fs-m: 18px;
-  --fs-l: 20px;
-  --fs-xl: 24px;
-  --fs-xxl: 40px;
-
-
-  /*Border*/
-
-  /*Border width*/
+  /* Border */
   --bw-regular: 2px;
 
-  /*Grid*/
-
+  /* Grid */
   --column-count-1: 1;
   --column-count-2: 2;
   --column-count-3: 3;
