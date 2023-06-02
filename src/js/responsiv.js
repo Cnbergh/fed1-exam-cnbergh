@@ -34,20 +34,15 @@ setTimeout(function handleResponsive() {
   window.addEventListener("resize", handleResponsive);
 }, 200);
 
-
 function navigateToPage(url, pageTitle) {
-
   history.pushState(null, pageTitle, url);
-
 
   document.title = pageTitle;
 }
 
-
 function updateURLAndTitle() {
   const currentPage = window.location.pathname;
   let pageTitle;
-
 
   switch (currentPage) {
     case "/index.html":
@@ -68,12 +63,9 @@ function updateURLAndTitle() {
       break;
   }
 
-
   navigateToPage(currentPage, pageTitle);
 }
 
-
 window.onpopstate = updateURLAndTitle;
-
 
 updateURLAndTitle();

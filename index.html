@@ -81,8 +81,6 @@
             lives.
 
             Discover the power of slow mornings and intentional living at Slow Morning Living!
-
-            Feel free to further customize and refine the text to suit your preferences and brand messaging.
           </p>
         </div>
         <button onclick="window.location.href='/src/pages/about.html'" class="b-cta">About us</button>
@@ -105,26 +103,26 @@
                 <div class="skeleton skeleton-text"></div>
               </div>
             </div>
-            <button id="see-more-button" onclick="fetchBlogData()" class="b-cta">See more posts</button>
+            <button id="see-more-button" class="b-cta">See more posts</button>
           </div>
         </div>
         <div class="u-space c-card"></div>
-        <!-- <div id="carousel-blog-list-container" class="is-hidden">
-          <div id="carousel-wrapper">
-            <ul class="carousel-list"></ul>
-            <button id="previous-option">Previous</button>
-            <button id="next-option">Next</button>
+      </section>
+
+      <section role="carousel-container">
+        <div class="swiper-container c-card">
+          <div class="swiper-wrapper">
           </div>
-        </div> -->
-        </div>
+          <div class="swiper-button-wrapper">
+            <div class="swiper-button-prev">Previous</div>
+            <div class="swiper-button-next">Next</div>
+          </div>
+          <div class="u-space c-card"></div>
         </div>
       </section>
 
-
-
       <section role="contact form" class="contact-form-index">
         <h2 id="color-cta-primary" class="c-title c-card">Contact Us</h2>
-
         <form id="contact-form" class="c-form" enctype="multipart/form-data"
           action="https://slow-mo.flywheelsites.com/wp-json/contact-form-7/v1/contact-forms/142/feedback">
           <div>
@@ -159,6 +157,13 @@
         <div class="u-space c-card"></div>
       </section>
     </article>
+
+    <div id="modal-container" class="modal-container">
+      <div class="modal-content">
+        <span id="modal-close" class="modal-close">&times;</span>
+        <img id="modal-image" class="modal-image" src="" alt="Enlarged Image" />
+      </div>
+    </div>
 
     <dialog menu-modal class="Menu-model">
       <ul>
@@ -203,6 +208,7 @@
   <script type="module" defer src="/src/js/l-bloglist.js"></script>
   <script type="module" defer src="/src/js/contact.js"></script>
   <script type="module" defer src="/src/js/responsiv.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>
 
 </html>
