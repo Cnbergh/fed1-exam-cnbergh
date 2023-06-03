@@ -2,112 +2,118 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/public/placeholder.jpg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="blog post" />
-    <meta name="keywords" content="HTML, CSS, JavaScript, Blog posts, post, images" />
-    <meta name="author" content="Christian N.Bergh" />
-    <link rel="stylesheet" href="/style.css" />
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script>
-      (function (h, o, t, j, a, r) {
-        h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
-        h._hjSettings = { hjid: 3507873, hjsv: 6 };
-        a = o.getElementsByTagName('head')[0];
-        r = o.createElement('script'); r.async = 1;
-        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-        a.appendChild(r);
-      })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
-    </script>
-    <title>Slow - Mo/blog</title>
-  </head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/public/placeholder.jpg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="blog post" />
+  <meta name="keywords" content="HTML, CSS, JavaScript, Blog posts, post, images" />
+  <meta name="author" content="Christian N.Bergh" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script>
+    (function (h, o, t, j, a, r) {
+      h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+      h._hjSettings = { hjid: 3507873, hjsv: 6 };
+      a = o.getElementsByTagName('head')[0];
+      r = o.createElement('script'); r.async = 1;
+      r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+  </script>
+  <title>Slow - Mo/blog</title>
+</head>
 
 <body>
-    <div id="loader" class="loader">
-        <div id="loader-bar" class="loader-bar"></div>
+  <div id="loader" class="loader">
+    <div id="loader-bar" class="loader-bar"></div>
+  </div>
+  <header class="l-header">
+    <div class="page-title">
+      <h1 role="title">blog page</h1>
     </div>
-    <header class="l-header">
-        <div class="page-title">
-            <h1 role="title">blog page</h1>
-        </div>
-        <nav class="l-navbar">
-            <div class="c-logo">
-                <a href="/index.html">
-                    <h3>slow - mo</h3>
-                </a>
+    <nav class="l-navbar">
+      <div class="c-logo">
+        <a href="#" onclick="history.back()">
+          <span class="material-symbols-outlined">
+            arrow_circle_left
+          </span>
+          <h3>slow - mo</h3>
+        </a>
+      </div>
+    </nav>
+  </header>
+  <main class="l-main">
+    <article role="main-content">
+      <section role="blog-list">
+        <div class="c-card">
+          <div class="accordion">
+            <div id="blog-list-container">
+              <div class="c-title skeleton">
+                <div class="skeleton skeleton-text"></div>
+              </div>
+              <div class="c-card-text">
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text"></div>
+              </div>
+              <div class="c-card-text">
+                <div class="skeleton skeleton-text"></div>
+              </div>
             </div>
+            <button id="see-more-button" onclick="fetchBlogData()" class="b-cta">See more
+              posts</button>
+          </div>
+        </div>
+      </section>
+    </article>
+    <div id="modal-container" class="modal-container">
+      <div class="modal-content">
+        <img id="modal-image" class="modal-image" src="" alt="Enlarged Image" />
+      </div>
+    </div>
+    <dialog menu-modal class="Menu-model">
+      <ul>
+        <div>
+          <h2>Menu</h2>
+        </div>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/src/pages/about.html">About</a></li>
+        <li><a href="/src/pages/blog.html">Blog</a></li>
+        <li><a href="/src/pages/contact.html">Contact</a></li>
+      </ul>
+      <button menu-close-modal class="b-cta">Close menu</button>
+    </dialog>
+  </main>
+  <footer class="l-footer">
+    <div class="footer-nav">
+      <div class="footer-menu">
+        <nav>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/src/pages/about.html">About</a></li>
+            <li><a href="/src/pages/blog.html">Blog</a></li>
+            <li><a href="/src/pages/contact.html">Contact</a></li>
+          </ul>
         </nav>
-    </header>
-
-    <main class="l-main">
-        <article role="main-content">
-
-            <section role="blog-list">
-                <div class="c-card">
-                    <div class="accordion">
-                        <div id="blog-list-container">
-                            <div class="c-title skeleton">
-                                <div class="skeleton skeleton-text"></div>
-                            </div>
-                            <div class="c-card-text">
-                                <div class="skeleton skeleton-text"></div>
-                                <div class="skeleton skeleton-text"></div>
-                                <div class="skeleton skeleton-text"></div>
-                            </div>
-                            <div class="c-card-text">
-                                <div class="skeleton skeleton-text"></div>
-                            </div>
-                        </div>
-                        <button id="see-more-button" onclick="fetchBlogData()" class="b-cta">See more
-                            posts</button>
-                    </div>
-                </div>
-            </section>
-        </article>
-        <dialog menu-modal class="Menu-model">
-            <ul>
-                <div>
-                    <h2>Menu</h2>
-                </div>
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="/src/pages/about.html">About</a></li>
-                <li><a href="/src/pages/blog.html">Blog</a></li>
-                <li><a href="/src/pages/contact.html">Contact</a></li>
-            </ul>
-            <button menu-close-modal class="b-cta">Close menu</button>
-        </dialog>
-    </main>
-
-    <footer class="l-footer">
-        <div class="footer-nav">
-          <div class="footer-menu">
-            <nav>
-              <ul>
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="/src/pages/about.html">About</a></li>
-                <li><a href="/src/pages/blog.html">Blog</a></li>
-                <li><a href="/src/pages/contact.html">Contact</a></li>
-              </ul>
-            </nav>
-          </div>
-          <div id="color-dark" class="logo-wrap">
-            <div class="nav-logo">
-              <a href="/index.html">
-                <h3 id="color-dark">slow - mo</h3>
-              </a>
-            </div>
-          </div>
+      </div>
+      <div id="color-dark" class="logo-wrap">
+        <div class="nav-logo">
+          <a href="/index.html">
+            <h3 id="color-dark">slow - mo</h3>
+          </a>
         </div>
-      </footer>
-
-    <small>Created with ❤️ by CNB</small>
-    <script type="module" defer src="/src/js/loader.js"></script>
-    <script type="module" defer src="/src/js/app.js"></script>
-    <script type="module" defer src="/src/js/l-bloglist.js"></script>
-    <script type="module" defer src="/src/js/responsiv.js"></script>
+      </div>
+    </div>
+  </footer>
+  <small>Created with ❤️ by CNB</small>
+  <script type="module" defer src="/src/js/loader.js"></script>
+  <script type="module" defer src="/src/js/app.js"></script>
+  <script type="module" defer src="/src/js/l-bloglist.js"></script>
+  <script type="module" defer src="/src/js/responsiv.js"></script>
 </body>
 
 </html>

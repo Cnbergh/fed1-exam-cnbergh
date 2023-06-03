@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="/style.css" />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script>
     (function (h, o, t, j, a, r) {
@@ -35,18 +37,17 @@
     </div>
     <nav class="l-navbar">
       <div class="c-logo">
-        <a href="/index.html">
+        <a href="#" onclick="history.back()">
           <h3>slow - mo</h3>
         </a>
       </div>
     </nav>
   </header>
-
   <main class="l-main">
     <article role="main-content">
       <section role="latest-post">
         <div id="latest-post-container">
-          <div class="l-container c-card">
+          <div class="l-container">
             <div class="c-title l-latest-post skeleton">...Loading</div>
             <img class="hero-image skeleton" src="/public/placeholder.jpg" loading="lazy"
               alt="placeholder img skeleton-loader" />
@@ -65,12 +66,11 @@
           </div>
         </div>
       </section>
-
       <section role="about">
         <div class="u-space c-card"></div>
         <h2 id="color-cta-sec" class="c-title c-card">About us</h2>
         <div class="l-about c-card">
-          <h3 class="c-card-title l-content">Welcome to Slow Morning!</h3>
+          <h3 class="c-card-title l-content">Who are we?</h3>
           <p class="c-card-text">
             At Slow Morning Living, we embrace simplicity, mindfulness, and intentional living. Our blog is
             a sanctuary where we share practical tips, inspiring stories, and thought-provoking articles
@@ -83,7 +83,7 @@
             Discover the power of slow mornings and intentional living at Slow Morning Living!
           </p>
         </div>
-        <button onclick="window.location.href='/src/pages/about.html'" class="b-cta">About us</button>
+        <button onclick="window.location.href='/src/pages/about.html'" class="b-cta">See more</button>
         <div class="c-card u-space"></div>
       </section>
       <section role="blog-list">
@@ -108,11 +108,9 @@
         </div>
         <div class="u-space c-card"></div>
       </section>
-
       <section role="carousel-container">
         <div class="swiper-container c-card">
-          <div class="swiper-wrapper">
-          </div>
+          <div class="swiper-wrapper"></div>
           <div class="swiper-button-wrapper">
             <div class="swiper-button-prev">Previous</div>
             <div class="swiper-button-next">Next</div>
@@ -120,7 +118,6 @@
           <div class="u-space c-card"></div>
         </div>
       </section>
-
       <section role="contact form" class="contact-form-index">
         <h2 id="color-cta-primary" class="c-title c-card">Contact Us</h2>
         <form id="contact-form" class="c-form" enctype="multipart/form-data"
@@ -147,7 +144,6 @@
           </div>
           <div>
             <button data-open-modal id="form-cta" type="submit" onclick="submitForm()" class="b-cta">Submit</button>
-
             <dialog data-modal>
               <div>Thank you!</div>
               <button class="b-cta" data-close-modal>close</button>
@@ -157,14 +153,11 @@
         <div class="u-space c-card"></div>
       </section>
     </article>
-
     <div id="modal-container" class="modal-container">
       <div class="modal-content">
-        <span id="modal-close" class="modal-close">&times;</span>
         <img id="modal-image" class="modal-image" src="" alt="Enlarged Image" />
       </div>
     </div>
-
     <dialog menu-modal class="Menu-model">
       <ul>
         <div>
@@ -177,9 +170,7 @@
       </ul>
       <button menu-close-modal class="b-cta">Close menu</button>
     </dialog>
-
   </main>
-
   <footer class="l-footer">
     <div class="footer-nav">
       <div class="footer-menu">

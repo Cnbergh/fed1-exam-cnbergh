@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="/style.css" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script>
         (function (h, o, t, j, a, r) {
@@ -35,21 +37,21 @@
         </div>
         <nav class="l-navbar">
             <div class="c-logo">
-                <a href="/index.html">
+                <a href="#" onclick="history.back()">
+                    <span class="material-symbols-outlined">
+                        arrow_circle_left
+                    </span>
                     <h3>slow - mo</h3>
                 </a>
             </div>
         </nav>
     </header>
-
     <main class="l-main">
         <article role="main-content">
-
             <section role="about">
                 <h2 id="color-cta-sec" class="c-title c-card">About us</h2>
                 <div class="l-about c-card">
                     <h3 class="c-card-title l-content">Welcome to Slow Morning!</h3>
-
                     <p class="c-card-text">
                         At Slow Morning, we embrace simplicity, mindfulness, and intentional living. Our blog is
                         a sanctuary where we share practical tips, inspiring stories, and thought-provoking articles
@@ -66,7 +68,6 @@
             </section>
             <section role="contact form">
                 <h2 id="color-cta-primary" class="c-title c-card">Contact Us</h2>
-
                 <form id="contact-form" class="c-form">
                     <div>
                         <label for="name">Name:</label>
@@ -91,7 +92,6 @@
                     <div>
                         <button data-open-modal id="form-cta" type="submit" onclick="submitForm()"
                             class="b-cta">Submit</button>
-
                         <dialog data-modal>
                             <div>Thank you!</div>
                             <button class="b-cta" data-close-modal>close</button>
@@ -100,7 +100,11 @@
                 </form>
                 <div class="u-space c-card"></div>
             </section>
-
+            <div id="modal-container" class="modal-container">
+                <div class="modal-content">
+                    <img id="modal-image" class="modal-image" src="" alt="Enlarged Image" />
+                </div>
+            </div>
         </article>
         <dialog menu-modal class="Menu-model">
             <ul>
@@ -115,7 +119,6 @@
             <button menu-close-modal class="b-cta">Close menu</button>
         </dialog>
     </main>
-
     <footer class="l-footer">
         <div class="footer-nav">
             <div class="footer-menu">
@@ -137,7 +140,6 @@
             </div>
         </div>
     </footer>
-
     <small>Created with ❤️ by CNB</small>
     <script type="module" defer src="/src/js/loader.js"></script>
     <script type="module" defer src="/src/js/contact.js"></script>

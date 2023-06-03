@@ -124,3 +124,11 @@
     width: 100%;
   }
 }
+
+@media (max-width: 100vw) {
+
+  .accordion-trigger::before,
+  .accordion-trigger::after {
+    right: 40%;
+  }
+}

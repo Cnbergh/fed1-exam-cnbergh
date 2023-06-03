@@ -144,6 +144,7 @@ function renderPosts() {
         });
 
         const content = document.createElement("div");
+        content.classList.add("post-text");
         content.innerHTML = post.content;
 
         const seeMoreButton = document.createElement("button");
@@ -246,57 +247,75 @@ function renderCarousel() {
     carouselWrapper.innerHTML = "";
 
     const responsiveSlidesPerView = {
-      280: 1, // 280px and below: 1 slide
+      480: 1, // 480px and below: 1 slide
       640: 2, // 640px and below: 2 slides
       960: 3, // 960px and below: 3 slides
       1440: 4, // 1440px and below: 4 slides
     };
 
-    posts.forEach((post) => {
-      const slide = document.createElement("div");
-      slide.classList.add("swiper-slide");
+    const carouselLength = posts.length;
 
-      const carouselCard = document.createElement("div");
-      carouselCard.classList.add("carousel-card");
+    if (carouselLength > 0) {
+      const maxSlidesPerView = 1;
+      let slidesPerView = Math.min(maxSlidesPerView, carouselLength);
 
-      const title = document.createElement("h3");
-      title.classList.add("carousel-title");
-      title.textContent = post.title;
+      if (carouselLength < maxSlidesPerView) {
+        slidesPerView = carouselLength;
+      } else if (carouselLength % slidesPerView !== 0) {
+        slidesPerView += 1;
+      }
 
-      const image = document.createElement("img");
-      image.classList.add("carousel-image");
-      image.src = post.imageData?.source_url;
-      image.alt = "Post Image";
+      posts.forEach((post) => {
+        const slide = document.createElement("div");
+        slide.classList.add("swiper-slide");
 
-      image.addEventListener("click", () => {
-        openModal(post.imageData?.source_url);
+        const carouselCard = document.createElement("div");
+        carouselCard.classList.add("carousel-card");
+
+        const title = document.createElement("h3");
+        title.classList.add("carousel-title");
+        title.textContent = post.title;
+
+        const image = document.createElement("img");
+        image.classList.add("carousel-image");
+        image.src = post.imageData?.source_url;
+        image.alt = "Post Image";
+
+        image.addEventListener("click", () => {
+          openModal(post.imageData?.source_url);
+        });
+
+        const seeMoreButton = document.createElement("button");
+        seeMoreButton.classList.add("carousel-button");
+        seeMoreButton.textContent = "See More";
+        seeMoreButton.addEventListener("click", () => {
+          window.location.href = `/src/pages/blog-specific.html?id=${post.id}&media=${post.imageData?.id}`;
+        });
+
+        carouselCard.appendChild(title);
+        carouselCard.appendChild(image);
+        carouselCard.appendChild(seeMoreButton);
+        slide.appendChild(carouselCard);
+        carouselWrapper.appendChild(slide);
       });
 
-      const seeMoreButton = document.createElement("button");
-      seeMoreButton.classList.add("carousel-button");
-      seeMoreButton.textContent = "See More";
-      seeMoreButton.addEventListener("click", () => {
-        window.location.href = `/src/pages/blog-specific.html?id=${post.id}&media=${post.imageData?.id}`;
+      const swiper = new Swiper(".swiper-container", {
+        slidesPerView,
+        spaceBetween: 10,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: responsiveSlidesPerView,
+        loop: carouselLength > slidesPerView,
+        loopAdditionalSlides: 1,
+        speed: 500,
       });
 
-      carouselCard.appendChild(title);
-      carouselCard.appendChild(image);
-      carouselCard.appendChild(seeMoreButton);
-      slide.appendChild(carouselCard);
-      carouselWrapper.appendChild(slide);
-    });
-
-    new Swiper(".swiper-container", {
-      slidesPerView: 1,
-      spaceBetween: 10,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      breakpoints: responsiveSlidesPerView,
-      loop: true,
-      loopAdditionalSlides: 1,
-    });
+      swiper.on("reachEnd", () => {
+        swiper.slideToLoop(0);
+      });
+    }
   }
 }
 
@@ -305,13 +324,18 @@ function openModal(imageUrl) {
   const modalImage = document.getElementById("modal-image");
 
   modalImage.src = imageUrl;
-  modalContainer.style.display = "block";
+  modalContainer.style.display = "flex";
+
+  modalContainer.addEventListener("click", closeModal);
 }
 
-function closeModal() {
+function closeModal(event) {
   const modalContainer = document.getElementById("modal-container");
+  const modalImage = document.getElementById("modal-image");
+
+  if (event.target === modalImage) {
+    return;
+  }
 
   modalContainer.style.display = "none";
 }
-
-document.getElementById("modal-close").addEventListener("click", closeModal);

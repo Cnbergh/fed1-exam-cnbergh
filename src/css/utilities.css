@@ -5,32 +5,6 @@
  * @example https://fed-vocational-astro-course.vercel.app/en/html-css/module-3/media-queries
  */
 
-.Menu-model {
-  width: 100%;
-  height: 100%;
-}
-
-.Menu-model h2 {
-  padding: 3%;
-  text-decoration: underline;
-}
-
-.Menu-model ul {
-  padding: 3%;
-  margin-left: 3%;
-
-}
-
-.Menu-model li {
-  padding: 3%;
-  text-align: left;
-}
-
-.Menu-model a {
-  padding: 3%;
-  font-size: var(--fs-l);
-}
-
 .error-message {
   color: var(--color-red);
 }
@@ -72,6 +46,25 @@
   margin-bottom: 0;
 }
 
+
+.u-space {
+  display: block;
+  height: 60px;
+}
+
+#color-dark {
+  color: var(--color-beige);
+  background-color: var(--color-secondary-background);
+}
+
+#color-cta-primary {
+  background-color: var(--color-pink);
+}
+
+#color-cta-sec {
+  background-color: var(--color-light-blue);
+}
+
 @media screen and (min-width: 280px) and (max-width: 480px) {
   body {
     max-width: 480px;
@@ -92,6 +85,11 @@
     height: 5px;
     background: currentcolor;
     transition: transform 600ms;
+  }
+
+  .blog-specific .c-title {
+    padding: 3% 3% 3% 0;
+    border-bottom: var(--bw-regular) solid var(--color-primary-border);
   }
 }
 
@@ -115,6 +113,16 @@
     height: 5px;
     background: currentcolor;
     transition: transform 600ms;
+  }
+
+  .Menu-model {
+    width: 65%;
+    height: 85vh;
+  }
+
+  .blog-specific .c-title {
+    padding: 3% 3% 3% 0;
+    border-bottom: var(--bw-regular) solid var(--color-primary-border);
   }
 }
 
@@ -180,10 +188,39 @@
     min-height: 100px;
   }
 
+  .post-data {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .accordion-content .post-img {
+    max-height: 600px;
+    min-height: 400px;
+    width: 50%;
+  }
+
+  .post-text {
+    align-self: stretch;
+    justify-content: center;
+    width: 50%;
+    align-content: center;
+  }
+
+  .post-text p {
+    min-width: 280px;
+    margin: 0 auto;
+    padding: auto;
+  }
+
   .carousel-item {
     flex: 0 0 50%;
   }
-  
+
+  .Menu-model {
+    width: 60%;
+    height: 70vh;
+  }
+
 }
 
 
@@ -233,19 +270,27 @@
     min-height: 100px;
   }
 
-  .post-img {
-    width: 300;
-    height: 200px;
-    object-fit: cover;
+  .post-data {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
-  .post-data p {
+  .accordion-content .post-img {
+    max-height: 600px;
+    width: 50%;
+  }
+
+  .post-text {
+    align-self: stretch;
+    justify-content: center;
+    width: 50%;
+    align-content: center;
+  }
+
+  .post-text p {
     min-width: 280px;
-    width: 80%;
-    margin-left: 1%;
-    margin-right: auto;
-    padding-top: 1%;
-    padding-bottom: 1%;
+    margin: 0 auto;
+    padding: auto;
   }
 
   .l-latest-post {
@@ -266,11 +311,13 @@
   .carousel-item {
     flex: 0 0 33.33%;
   }
-}
 
+  .Menu-model {
+    width: 60%;
+    height: 80%;
+  }
 
-
-.u-space {
-  display: block;
-  height: 60px;
+  dialog .b-cta {
+    margin: 10% auto 0;
+  }
 }

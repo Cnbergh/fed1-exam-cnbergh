@@ -61,36 +61,3 @@
   background-color: var(--color-light-blue);
 }
 
-dialog {
-  font: inherit;
-  text-align: center;
-  color: var(--color-red);
-  background-color: var(--color-light-pink);
-}
-
-dialog .b-cta {
-  color: var(--color-red);
-  background-color: var(--color-light-pink);
-  border-color: var(--color-red);
-}
-
-dialog .b-cta:hover {
-  background-color: var(--color-light-blue);
-}
-
-dialog::backdrop {
-  background-color: var(--color-red);
-}
-
-#color-dark {
-  color: var(--color-beige);
-  background-color: var(--color-secondary-background);
-}
-
-#color-cta-primary {
-  background-color: var(--color-pink);
-}
-
-#color-cta-sec {
-  background-color: var(--color-light-blue);
-}

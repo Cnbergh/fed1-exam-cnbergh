@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="/style.css" />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script>
     (function (h, o, t, j, a, r) {
@@ -35,22 +37,28 @@
     </div>
     <nav class="l-navbar">
       <div class="c-logo">
-        <a href="/index.html">
+        <a href="#" onclick="history.back()">
+          <span class="material-symbols-outlined">
+            arrow_circle_left
+          </span>
           <h3>slow - mo</h3>
         </a>
       </div>
     </nav>
   </header>
-
-  <main class="l-main">
+  <main class="l-main" id="color-cta-sec">
     <article role="main-content">
-
       <section role="blog specific">
         <div id="blog-specific-error"></div>
         <div class="blog-specific"></div>
         <div class="skeleton-loader"></div>
       </section>
     </article>
+    <div id="modal-container" class="modal-container">
+      <div class="modal-content">
+        <img id="modal-image" class="modal-image" src="" alt="Enlarged Image" />
+      </div>
+    </div>
     <dialog menu-modal class="Menu-model">
       <ul>
         <div>
@@ -64,7 +72,6 @@
       <button menu-close-modal class="b-cta">Close menu</button>
     </dialog>
   </main>
-
   <footer class="l-footer">
     <div class="footer-nav">
       <div class="footer-menu">
@@ -87,8 +94,8 @@
     </div>
   </footer>
   </footer>eated with ❤️ by CNB</small>
-
   <script type="module" defer src="/src/js/loader.js"></script>
+  <script type="module" defer src="/src/js/app.js"></script>
   <script type="module" defer src="/src/js/details.js"></script>
   <script type="module" defer src="/src/js/responsiv.js"></script>
 </body>

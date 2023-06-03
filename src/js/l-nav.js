@@ -100,14 +100,12 @@ export function createMobileNav() {
   }
 }
 
-
 export function removeMobileNav() {
   const mobileNav = document.querySelector(".mobile-nav");
   if (mobileNav) {
     mobileNav.remove();
   }
 }
-
 
 export function removeDesktopNav() {
   const desktopNav = document.querySelector(".c-navbar");
@@ -122,6 +120,7 @@ const closeMenu = document.querySelector("[menu-close-modal]");
 closeMenu.addEventListener("click", () => {
   MenuModal.close();
 });
+
 
 removeMobileNav();
 removeDesktopNav();
